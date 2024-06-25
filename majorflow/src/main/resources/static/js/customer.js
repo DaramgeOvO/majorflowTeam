@@ -38,26 +38,26 @@ document.querySelectorAll(".subMenu > div").forEach((div) => {
   document.querySelector(".inquiryBox1-1").classList.add("hidden");
 });*/
 
-document.querySelector(".noticeBtn").addEventListener("click", () => {
-  document.querySelector(".noticeBox").classList.remove("hidden");
-  document.querySelector(".noticeWriteBox").classList.add("hidden");
-  document.querySelector(".customerInquiryBox").classList.add("hidden");
-  document.querySelector(".inquiryBox1-1").classList.add("hidden");
-});
+//document.querySelector(".noticeBtn").addEventListener("click", () => {
+//  document.querySelector(".noticeBox").classList.remove("hidden");
+//  document.querySelector(".noticeWriteBox").classList.add("hidden");
+//  document.querySelector(".customerInquiryBox").classList.add("hidden");
+//  document.querySelector(".inquiryBox1-1").classList.add("hidden");
+//});
 
-document.querySelector(".customerInquiryBtn").addEventListener("click", () => {
-  document.querySelector(".customerInquiryBox").classList.remove("hidden");
-  document.querySelector(".noticeWriteBox").classList.add("hidden");
-  document.querySelector(".noticeBox").classList.add("hidden");
-  document.querySelector(".inquiryBox1-1").classList.add("hidden");
-});
+//document.querySelector(".customerInquiryBtn").addEventListener("click", () => {
+//  document.querySelector(".customerInquiryBox").classList.remove("hidden");
+//  document.querySelector(".noticeWriteBox").classList.add("hidden");
+//  document.querySelector(".noticeBox").classList.add("hidden");
+//  document.querySelector(".inquiryBox1-1").classList.add("hidden");
+//});
 
-document.querySelector(".customerInquiryBox6").addEventListener("click", () => {
-  document.querySelector(".inquiryBox1-1").classList.remove("hidden");
-  document.querySelector(".noticeWriteBox").classList.add("hidden");
-  document.querySelector(".noticeBox").classList.add("hidden");
-  document.querySelector(".customerInquiryBox").classList.add("hidden");
-});
+//document.querySelector(".customerInquiryBox6").addEventListener("click", () => {
+//  document.querySelector(".inquiryBox1-1").classList.remove("hidden");
+//  document.querySelector(".noticeWriteBox").classList.add("hidden");
+//  document.querySelector(".noticeBox").classList.add("hidden");
+//  document.querySelector(".customerInquiryBox").classList.add("hidden");
+//});
 
 function sessionCurrent() {
   axios

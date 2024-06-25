@@ -15,7 +15,7 @@ public class ReviewController {
     @Autowired
     ReviewService reviewService;
 
-    @PostMapping("/save") //수정
+    @PostMapping("/save")
     public ResponseEntity<Review> saveReview(@RequestBody Review review) {
         return new ResponseEntity<>(reviewService.saveReview(review),
                 HttpStatus.OK);

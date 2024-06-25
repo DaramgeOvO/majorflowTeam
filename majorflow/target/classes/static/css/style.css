@@ -380,8 +380,7 @@ body {
 }
 
 .historyImg {
-  background-color: gray;
-  height: 600px;
+  height: 400px;
   width: 500px;
   margin: 30px 30px 30px 0px;
 }
@@ -596,8 +595,8 @@ body {
   grid-template-columns: 1.8fr 1.2fr;
 }
 .detailedBox2Img {
-  width: 700px;
-  height: 650px;
+  width: 500px;
+  height: 550px;
   background-color: grey;
   margin-bottom: 30px;
 }
@@ -777,17 +776,12 @@ body {
   width: 90%; /* 가로 길이 조정 */
   height: 110px;
   border-radius: 25px;
-  border: 1px solid #ddd; /* 좀 더 연한 색상 */
   padding: 15px;
   position: relative;
   overflow: hidden;
   transition: height 0.3s ease, background-color 0.3s ease;
   margin-bottom: 30px;
-  background-color: #f9f9f9; /* 배경색 추가 */
-}
-
-.noticeBox2:hover {
-  background-color: #f1f1f1; /* 호버 시 배경색 변경 */
+  background-color: #BBD0E9 /* 배경색 추가 */
 }
 
 .noticeBox2.active {
@@ -817,12 +811,14 @@ body {
   position: absolute;
   top: 2.5rem;
   right: 1.5rem;
-  font-size: 20px; /* 텍스트 크기 축소 */
-  color: #666; /* 텍스트 색상 변경 */
+  font-size: 30px;
+  font-weight: bold;
+   /* 텍스트 색상 변경 */
 }
 .noticeBox3-2:focus {
   outline: 0;
 }
+
 .noticeBox3-3.close {
   display: none;
 }
@@ -837,12 +833,11 @@ body {
   height: 1px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ddd; /* 연한 색상으로 변경 */
+  border: 1px solid white; /* 연한 색상으로 변경 */
 }
 .noticeBox4 {
   font-size: 18px; /* 텍스트 크기 축소 */
   height: 150px;
-  color: #666; /* 텍스트 색상 변경 */
 }
 .noticeBox5 {
   display: flex;
@@ -958,8 +953,8 @@ body {
   flex-wrap: wrap;
 }
 .enrollment > div {
-  border: 2px solid black;
-  border-radius: 5px;
+  background-color: #BBD0E9;
+  border-radius: 25px;
   margin: 0px 0px 30px 0px;
   display: flex;
   flex-basis: 100%;
@@ -971,10 +966,10 @@ body {
 }
 
 .lectureEnrollimg {
-  background-color: gray;
+  background-color: white;
   height: 300px;
   width: 400px;
-  border-radius: 10px;
+  border-radius: 25px;
   margin: 30px;
 }
 
@@ -999,17 +994,18 @@ body {
 .cartEnrollBtn {
   height: 50px;
   width: 150px;
-  border: 2px solid black;
-  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
   text-align: center;
-  line-height: 45px;
+  line-height: 50px;
   float: right;
   margin: 5px 0px 5px 0px;
 }
 
 .cartEnrollBtn:hover {
-  background-color: black;
-  color: white;
+  background-color: #F8F8F8;
+  color: black;
 }
 
 .moveToCartBtnContainer {
@@ -1645,7 +1641,7 @@ body {
   text-align: center;
   line-height: 66px;
   float: right;
-  margin: 30px 0;
+  margin: 30px 80px;
   border-radius: 25px;
 }
 .star_rating {
