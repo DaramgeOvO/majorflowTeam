@@ -1,0 +1,1885 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+/*메인페이지*/
+
+.mainBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0e0e0e;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main {
+  position: relative;
+}
+
+.mainBox {
+  position: absolute;
+}
+
+.mainTitle1 {
+  width: 100%;
+  color: white;
+  font-size: 60px;
+  font-weight: bolder;
+  letter-spacing: 40px;
+  margin: 30px;
+  left: 380px;
+  bottom: -20px;
+}
+.mainTitle2 {
+  width: 100%;
+  color: white;
+  font-size: 60px;
+  font-weight: bolder;
+  letter-spacing: 40px;
+  margin: 30px;
+  left: 1050px;
+  top: 130px;
+}
+
+.circleRing {
+  top: -240px;
+  left: 630px;
+}
+
+.ring {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 6s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite;
+}
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+/* .ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+} */
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.loginMenuBtn {
+  height: 300px;
+  width: 150px;
+  color: white;
+  font-size: 35px;
+  line-height: 40px;
+  bottom: 539px;
+  left: 100px;
+  cursor: pointer; /* Pointer cursor for button */
+}
+
+.loginMenu {
+  height: 1000px;
+  width: 500px;
+  color: black;
+  font-size: 30px;
+  font-weight: 500;
+  position: absolute;
+  bottom: -81px;
+  left: 0px;
+  transform: translateX(-100%);
+  opacity: 0;
+  padding: 10px;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.loginMenu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.loginMenu::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: white;
+  transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menuBtn {
+  height: 300px;
+  width: 150px;
+  color: white;
+  font-size: 35px;
+  line-height: 40px;
+  bottom: 340px;
+  left: 100px;
+  position: relative;
+  cursor: pointer; /* Pointer cursor for button */
+}
+
+.menu {
+  height: 1000px;
+  width: 500px;
+  color: black;
+  font-size: 30px;
+  font-weight: 500;
+  position: absolute;
+  bottom: -500px;
+  left: 0px;
+  transform: translateX(-100%);
+  opacity: 0;
+  padding: 10px;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menuContents {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.menuContents > div {
+  padding: 30px 30px 0px 30px;
+}
+
+.menuContents > div:hover {
+  color: rgb(0, 0, 77);
+  font-weight: 600;
+}
+
+.closeBtn {
+  height: 50px;
+  width: 50px;
+  background-color: gray;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeBtn > img {
+  height: 20px;
+  width: 20px;
+}
+
+.closeBtn:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.menu::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: white;
+  transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.loginBtn {
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: 5px;
+  line-height: 30px;
+  bottom: 360px;
+  left: 910px;
+}
+
+.loginBtn:hover {
+  color: gray;
+}
+
+/* 전체 설정*/
+body {
+  font-size: 18px;
+}
+
+.container {
+  width: 100%;
+}
+.box1 {
+  width: 100%;
+  height: 500px;
+  background-color: black;
+}
+.box2 {
+  width: 100%;
+  height: auto;
+  background-color: white;
+}
+.box3 {
+  width: 100%;
+  height: 500px;
+  background-color: black;
+  margin-top: 50px;
+}
+.wbox {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* 상단 메뉴바 설정*/
+.mainMenu {
+  display: grid;
+  grid-template-columns: 1.5fr 5.5fr 3fr;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.mainMenu > div {
+  color: white;
+  margin-top: 30px;
+}
+
+.centerMenu {
+  padding: 40px;
+}
+
+.rightMenu {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menuReviewBtn {
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  padding: 5px 20px 5px 20px;
+}
+
+.mainMenu > div > span:hover {
+  color: gray;
+}
+
+.title {
+  background-color: black;
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  padding-top: 200px;
+}
+
+.subMenu {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.subMenu > div {
+  width: 250px;
+  height: 50px;
+  margin: 20px 20px 20px 0px;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  border-radius: 30px 30px 0px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subMenu > div:hover {
+  background-color: white;
+  color: black;
+}
+
+.subMenu > div.active {
+  background-image: linear-gradient(
+    to right,
+    #d63ef4,
+    #619ede
+  ); /* 그라디언트 지정 */
+  color: white;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.cartIcon,
+.mypageIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.cartIcon > img,
+.mypageIcon > img {
+  width: 30px;
+  height: 30px;
+}
+
+/* 연혁 페이지 설정*/
+
+.historyTitle {
+  font-size: 50px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  margin: 50px;
+}
+
+.historyImg {
+  background-color: gray;
+  height: 600px;
+  width: 500px;
+  margin: 30px 30px 30px 0px;
+}
+
+.historyBox1 {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.historyText1 {
+  margin: 30px 40px 30px 40px;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+/* 강사진 페이지 설정*/
+.teacherTitle {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px;
+  margin-top: 30px;
+}
+
+.teacher {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.teacherInfo {
+  height: 400px;
+  width: 250px;
+  margin: 30px;
+}
+
+.teacherPicture {
+  background-color: rgb(160, 131, 187);
+  height: 350px;
+  width: 300px;
+  overflow: hidden;
+}
+
+.teacherPicture img {
+  transition: all 0.2s linear;
+  width: inherit;
+}
+
+.teacherPicture:hover img {
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+
+.teacherName {
+  margin: 10px 0px 5px 0px;
+}
+
+.teacherSubject {
+  margin: 5px 0px 5px 0px;
+}
+
+/* 강사 프로필 설정 */
+.singleTeacherTitle {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px;
+  margin-top: 30px;
+}
+
+.singleTeacher {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.singleTeacher1 {
+  background-color: white;
+}
+
+.singleTeacher1 img {
+  height: 450px;
+  width: 400px;
+  width: inherit;
+}
+
+.singleTeacherText {
+  font-size: 10px;
+  padding: 50px 50px 30px 0px;
+  line-height: 30px;
+  margin: 30px 50px 0px 0px;
+}
+
+.singleTeacher1 > div {
+  font-size: 20px;
+  padding: 10px 0px 0px 0px;
+}
+
+.singleTeacher2 > div {
+  font-size: 20px;
+  padding: 0px 50px 30px 0px;
+  line-height: 40px;
+}
+
+/*수강안내*/
+
+.courseBox,
+.tasteBox,
+.pirceGuideBox,
+.noticeBox1,
+.inquiryBox1,
+.reivewWrite {
+  font-size: 40px;
+  margin: 30px 0px 30px 0px;
+  padding: 30px 0px 30px 0px;
+  font-weight: bold;
+}
+
+.detailedBox {
+  font-size: 40px;
+  margin: 10px 0px 30px 0px;
+  padding: 10px 0px 30px 0px;
+  font-weight: bold;
+}
+
+.lectureName {
+  font-size: 25px;
+  margin: 0 0 0 30px;
+}
+
+.allCourse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.allCourseClick {
+  position: relative; /* 텍스트를 이미지 위에 배치하기 위해 relative 설정 */
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden; /* 둥근 모서리 내에서 이미지가 잘리도록 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과 */
+  width: 450px; /* 박스의 가로 길이 조정 */
+}
+
+.allCourseClick:hover {
+  transform: scale(1.05); /* 호버 시 확대 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
+}
+
+.allCourseClickImg {
+  background-color: gray;
+  width: 100%; /* 부모 박스 크기에 맞춤 */
+  height: 300px;
+  background-size: cover; /* 이미지가 박스를 채우도록 */
+  background-position: center; /* 이미지가 중앙에 위치하도록 */
+  background-image: url("/img/전체강좌_기타.jpg"); /* 이미지 추가 */
+  transition: opacity 0.3s ease; /* 이미지 애니메이션 효과 */
+}
+
+.textContainer {
+  position: absolute;
+  left: 20px; /* 좌측에서 20px 떨어진 위치 */
+  bottom: 40px; /* 아래에서 40px 떨어진 위치 */
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease; /* 위치 변경 애니메이션 */
+}
+
+.textContainer p {
+  margin: 0;
+}
+
+.textContainer .mainText {
+  font-size: 30px; /* 기타 텍스트 크기 증가 */
+}
+
+.textContainer .subText {
+  font-size: 16px; /* 서브 텍스트 크기 설정 */
+  font-weight: normal; /* 서브 텍스트 굵기 얇게 */
+  opacity: 0; /* 기본 상태에서는 보이지 않음 */
+  transition: opacity 0.3s ease; /* 자연스럽게 나타나는 애니메이션 */
+}
+
+.allCourseClick:hover .textContainer {
+  transform: translateY(-10px); /* 마우스 오버 시 텍스트 위치 위로 이동 */
+}
+
+.allCourseClick:hover .subText {
+  opacity: 1; /* 마우스 오버 시 하위 텍스트 보이기 */
+}
+
+.lectureName {
+  font-size: 25px;
+  margin: 10px 0; /* 텍스트 위아래 여백 조정 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.backBtn {
+  width: 50px;
+  height: 50px;
+  margin: 30px 0px 10px 0px;
+}
+
+.backBtnImg {
+  width: inherit;
+}
+
+.detailedBox2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+}
+.detailedBox2Img {
+  width: 700px;
+  height: 650px;
+  background-color: grey;
+  margin-bottom: 30px;
+}
+.detailedBox2Text {
+  width: 600px;
+  height: 650px;
+}
+.detailedBox2Text2 {
+  width: 100%;
+  height: 800px;
+}
+
+.tasteCourse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.tasteCourseClick {
+  margin: 20px 0 20px 0;
+}
+
+.tasteCourseClickImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 450px; /* 박스의 가로 길이 조정 */
+  height: 300px; /* 박스의 세로 길이 조정 */
+}
+
+.tasteCourseImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.coursePriceGuide {
+  width: 90%;
+  height: 800px;
+  border-radius: 15px; /* 둥근 모서리 */
+  background: linear-gradient(
+    to bottom,
+    #f0f4f8,
+    #d9e2ec
+  ); /* 배경 그라데이션 */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  transition: box-shadow 0.3s ease; /* 애니메이션 효과 */
+}
+
+.coursePriceGuide::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: inherit; /* 둥근 모서리 유지 */
+  background: linear-gradient(
+    to right,
+    #6a11cb,
+    #2575fc
+  ); /* 테두리 그라데이션 */
+}
+
+.coursePriceGuide:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
+}
+
+.horizontal-line {
+  width: 90%;
+  height: 2px;
+  background-color: #a0aec0;
+  margin: 40px auto;
+}
+#priceGuide1,
+#priceGuide2 {
+  font-size: 70px;
+  margin: 20px 0 10px 100px;
+  color: #333;
+}
+.priceGuide3 {
+  font-size: 40px;
+  margin: 20px 0 0px 100px;
+  color: #555;
+}
+.priceGuide4 {
+  font-size: 90px;
+  margin: 0px 80px 10px 0px;
+  font-weight: bold;
+  display: flex;
+  justify-content: end;
+  color: #111;
+}
+#priceGuide5 {
+  font-size: 25px;
+  margin: 40px 80px 10px 0px;
+  display: flex;
+  justify-content: end;
+  color: #777;
+}
+
+/* 동영상 모달창 */
+.modal1 {
+  position: fixed;
+  top: 50%; /* 화면 세로 가운데 */
+  left: 50%; /* 화면 가로 가운데 */
+  transform: translate(-50%, -50%); /* 위치를 화면 중앙으로 조정 */
+  width: 850px;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  padding: 20px;
+  box-sizing: border-box; /* 패딩 포함하여 박스 크기 계산 */
+}
+
+.modal1-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: scale(0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box; /* 패딩 포함하여 박스 크기 계산 */
+}
+
+.modal1.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal1.show .modal1-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#modalCloseBtn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-end;
+  margin: 10px;
+}
+
+#modalCloseBtn:hover {
+  color: black;
+}
+
+#modalVideo {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  border: none; /* 비디오 테두리 제거 */
+  box-sizing: border-box; /* 패딩 포함하여 박스 크기 계산 */
+}
+
+/*공지사항*/
+
+.noticeBox2 {
+  width: 90%; /* 가로 길이 조정 */
+  height: 110px;
+  border-radius: 25px;
+  border: 1px solid #ddd; /* 좀 더 연한 색상 */
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: height 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 30px;
+  background-color: #f9f9f9; /* 배경색 추가 */
+}
+
+.noticeBox2:hover {
+  background-color: #f1f1f1; /* 호버 시 배경색 변경 */
+}
+
+.noticeBox2.active {
+  height: 330px;
+  transition: height 0.3s ease;
+}
+.noticeBox3 {
+  display: grid;
+  grid-template-columns: 8fr 1.5fr 0.5fr;
+  width: 100%;
+  height: 88px;
+}
+.noticeBox3-1 {
+  font-size: 24px; /* 텍스트 크기 축소 */
+  font-weight: bold;
+  margin-right: 30px;
+  line-height: 88px;
+  color: #333; /* 텍스트 색상 변경 */
+}
+.noticeBox3-2 {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 2.5rem;
+  right: 1.5rem;
+  font-size: 20px; /* 텍스트 크기 축소 */
+  color: #666; /* 텍스트 색상 변경 */
+}
+.noticeBox3-2:focus {
+  outline: 0;
+}
+.noticeBox3-3.close {
+  display: none;
+}
+.noticeBox2.active .noticeBox3-3.close {
+  display: block;
+}
+.noticeBox2.active .noticeBox3-3.open {
+  display: none;
+}
+.noticeBoxLine {
+  width: 100%;
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd; /* 연한 색상으로 변경 */
+}
+.noticeBox4 {
+  font-size: 18px; /* 텍스트 크기 축소 */
+  height: 150px;
+  color: #666; /* 텍스트 색상 변경 */
+}
+.noticeBox5 {
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  gap: 10px; /* 이미지와 텍스트 사이 간격 조정 */
+}
+
+.noticeBox5 img {
+  width: 24px; /* 이미지 너비 조정 */
+  height: 24px; /* 이미지 높이 조정 */
+  vertical-align: middle; /* 텍스트와 이미지가 수직으로 가운데 정렬되도록 설정 */
+}
+
+.noticeBox5-1 {
+  width: auto;
+  height: 30px;
+  padding: 0 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 15px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.noticeBox5-1:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.commentBox {
+  display: none;
+  margin-top: 10px;
+}
+
+.commentBox.active {
+  display: block;
+}
+
+.commentInput {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.commentSubmit {
+  width: 100px;
+  height: 35px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 35px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.commentSubmit:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.noticeBox6 {
+  width: 150px; /* 버튼 크기 축소 */
+  height: 50px; /* 버튼 크기 축소 */
+  font-size: 20px; /* 텍스트 크기 조정 */
+  line-height: 50px; /* 버튼 높이에 맞게 조정 */
+  margin-bottom: 50px; /* 글쓰기 버튼과 FOOTER 사이 간격 조정 */
+  margin-left: 20px; /* 왼쪽으로 조금 이동 */
+  /* 나머지 속성은 그대로 유지 */
+  border: none;
+  font-weight: bold;
+  text-align: center;
+  float: left; /* 버튼을 왼쪽으로 정렬 */
+  color: white;
+  background-color: #007bff;
+  border-radius: 33px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer {
+  margin-top: 70px; /* FOOTER와 글쓰기 버튼 사이 간격 늘리기 */
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f1f1f1;
+}
+
+.footer h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* 수강신청 페이지 설정 */
+
+.enrollmentTitle {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px;
+  margin-top: 30px;
+}
+.enrollment {
+  display: flex;
+  flex-wrap: wrap;
+}
+.enrollment > div {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0px 0px 30px 0px;
+  display: flex;
+  flex-basis: 100%;
+}
+
+.lectureEnrollInfo {
+  width: 810px;
+  margin: 30px;
+}
+
+.lectureEnrollimg {
+  background-color: gray;
+  height: 300px;
+  width: 400px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.lectureEnrollname {
+  font-size: 30px;
+  padding: 5px 0px 5px 0px;
+  margin: 30px 0px 0px 0px;
+}
+
+.teacherEnrollname {
+  font-size: 20px;
+  padding: 5px 0px 5px 0px;
+  margin: 0px 0px 30px 0px;
+}
+
+.enrollPrice > div {
+  display: inline-block;
+  padding: 20px 40px 20px 0px;
+  margin-right: 50px;
+}
+
+.cartEnrollBtn {
+  height: 50px;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 45px;
+  float: right;
+  margin: 5px 0px 5px 0px;
+}
+
+.cartEnrollBtn:hover {
+  background-color: black;
+  color: white;
+}
+
+.moveToCartBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.moveToCartBtn {
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.moveToCartBtn:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* 체크박스 스타일링 */
+.styled-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.styled-checkbox:checked {
+  background-color: black;
+  border: 2px solid black;
+}
+
+.styled-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 장바구니 */
+.box1Cart {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.cartBox {
+  width: 80%;
+  max-width: 1000px;
+  background-color: #f1f4f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.cartBox1 {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cartBox2,
+.cartBox3,
+.cartBox4-1,
+.cartBox4-2 {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+.cartBox3,
+.cartBox4-2 {
+  border-left: 1px solid #888;
+}
+
+.cartBoxLine {
+  display: none;
+}
+
+.cartBox5 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cartBox5-1 {
+  width: calc(50% - 20px);
+  height: 64px;
+  background-color: #777;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 64px;
+  margin: 10px;
+  border: 1px solid #999;
+}
+
+.cartBox6 {
+  width: 263px;
+  height: 64px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  text-align: center;
+  line-height: 64px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cartBox6:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.cartBoxRemove {
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cartBoxRemove:hover {
+  background-color: #cc0000;
+}
+
+.totalPrice {
+  font-size: 20px;
+  text-align: right;
+  margin: 20px 0;
+}
+
+.footer {
+  width: 100%;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* 나의 진도율 페이지 설정 */
+
+.myLectureBoxGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.myLectureTitle,
+.progressTitle {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px;
+  margin-top: 30px;
+  border-bottom: 2px solid black;
+}
+
+.myLectureTitlebox,
+.progressTitleBox {
+  display: inline;
+  justify-content: left;
+}
+
+.myLectureSubjectName {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px 0px 0px;
+  margin: 30px 0px 20px 30px;
+}
+
+.progressSubjectName {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 30px 0px 0px 0px;
+  margin: 30px 0px 20px 0px;
+}
+
+.myLectureType {
+  font-size: 20px;
+  padding: 0px 0px 30px 30px;
+}
+
+.progressType {
+  font-size: 20px;
+  padding: 30px 0px 0px 0px;
+  margin: 30px 0px 20px 0px;
+}
+
+.myLectureImgBox {
+  background-color: gray;
+  width: inherit;
+  height: 300px;
+  border: 0px solid gray;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.progressImgBox {
+  background-color: gray;
+  width: 350px;
+  height: 250px;
+  border: 0px solid gray;
+  border-radius: 30px;
+  margin: 30px;
+}
+
+.studyLectureBtnBox {
+  display: flex;
+  justify-content: center;
+}
+
+.studyLectureBtn {
+  width: 300px;
+  height: 60px;
+  border: 1px solid #007bff;
+  color: #007bff;
+  border-radius: 30px;
+  text-align: center;
+  padding: 18px;
+  margin: 30px;
+  font-weight: bold;
+}
+
+.studyLectureBtn:hover {
+  width: 300px;
+  height: 60px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 30px;
+  text-align: center;
+  padding: 18px;
+  margin: 30px;
+  font-weight: bold;
+}
+
+.myLectureInfoBox {
+  height: 650px;
+  border: 1px solid gray;
+  border-radius: 30px;
+  margin: 50px;
+}
+
+.progressInfoBox {
+  height: 350px;
+  border: 1px solid gray;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 50px;
+  display: grid;
+  grid-template-columns: 4fr 2fr 4fr;
+}
+
+.myLectureInfo,
+.progressInfo {
+  display: grid;
+  grid-template-columns: 35% 65%;
+}
+
+.progressInfoStudent {
+  font-size: 30px;
+  padding: 0px 10px;
+  margin: 40px;
+  color: black;
+  font-weight: bold;
+}
+
+.progressGraph {
+  width: 130px;
+  height: 130px;
+  border: 3px solid gray;
+  border-radius: 100px;
+  text-align: center;
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressStudyBtn {
+  width: 130px;
+  height: 130px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressStudyBtn:hover {
+  width: 130px;
+  height: 130px;
+  background-color: white;
+  color: #007bff;
+  border-radius: 20px;
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressBtnBox {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.noInfo {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  padding: 50px;
+  margin: 50px;
+}
+
+/* 성적확인 페이지 설정 */
+.gradeTitle {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px;
+  margin-top: 30px;
+  border-bottom: 2px solid black;
+}
+
+.gradeInfoBox {
+  height: 700px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.gradeSubjectName {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  padding: 30px 0px;
+  margin: 30px;
+}
+
+.gradeSubjectInfo {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0px;
+  margin: 30px;
+}
+
+/* 수강후기 */
+.reviewBox {
+  width: 100%;
+  height: 300px;
+  background-color: #2f2f2f;
+}
+.reviewBox2-content {
+  width: 100%;
+  height: 300px;
+  background-color: #f5f5f5;
+  border-radius: 25px;
+  position: relative;
+  top: -150px;
+  padding: 35px;
+}
+.reviewBox3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr;
+  justify-items: center;
+}
+.reviewBox4 {
+  width: 240px;
+  height: 47px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 47px;
+}
+#reviewBox3-1 {
+  width: 288px;
+  height: 70px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 70px;
+  margin-top: 50px;
+}
+#reviewBox3-2 {
+  width: 288px;
+  height: 70px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 70px;
+  margin-top: 50px;
+}
+.reviewBoxStarGrid {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  margin-top: 5px;
+}
+.reviewBoxStar {
+  margin-top: 15px;
+}
+#reviewBoxStar1-1 {
+  width: 294px;
+  height: 13px;
+  background-color: #3d3d3d;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+.reviewBoxStar2-1 {
+  width: 294px;
+  height: 13px;
+  background-color: #d9d9d9;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: relative;
+}
+#reviewBoxStar2-1 {
+  width: 254px;
+  height: 13px;
+  background-color: #3d3d3d;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: absolute;
+  top: -10px;
+}
+#reviewBoxStar2-2 {
+  width: 190px;
+  height: 13px;
+  background-color: #3d3d3d;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: absolute;
+  top: -10px;
+}
+#reviewBoxStar2-3 {
+  width: 150px;
+  height: 13px;
+  background-color: #3d3d3d;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: absolute;
+  top: -10px;
+}
+#reviewBoxStar2-4 {
+  width: 87px;
+  height: 13px;
+  background-color: #3d3d3d;
+  border-radius: 25px;
+  margin-top: 10px;
+  position: absolute;
+  top: -10px;
+}
+.reviewStar {
+  font-size: 22px;
+}
+/*
+.reviewBox5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 850px;
+  height: 90px;
+  border-radius: 50px;
+  margin: auto;
+  text-align: center;
+  line-height: 90px;
+  background-color: #d9d9d9;
+  font-size: 32px;
+  position: relative;
+  top: -110px;
+}
+.reviewBox5 > div:hover {
+  color: white;
+  background-color: #2f2f2f;
+  border-radius: 50px;
+}
+*/
+.reviewBox6 {
+  width: 85%;
+  height: 1000px;
+  margin: auto;
+}
+.reviewBox6-1 {
+  width: 230px;
+  height: 56px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 56px;
+  position: relative;
+  top: -70px;
+  margin-left: 80px;
+}
+.reviewBox7 {
+  width: 100%;
+  height: 310px;
+  border-radius: 25px;
+  background-color: #BBD0E9;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+.reviewBox7Grid {
+  display: grid;
+  grid-template-columns: 9.5fr 0.5fr;
+}
+.reviewBox7Grid-1 {
+  width: 143px;
+  height: 43px;
+  text-align: center;
+  line-height: 43px;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+#reviewBox7Grid-2 {
+  width: 143px;
+  height: 26px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 26px;
+  margin-top: 5px;
+}
+.reviewBox7Grid-3 {
+  width: 140px;
+  height: 26px;
+  text-align: center;
+  margin-top: 15px;
+}
+.reviewBox7Grid-4 {
+  width: 143px;
+  font-size: 24px;
+  text-align: center;
+}
+.reviewBox8 {
+  width: 100%;
+  height: 133px;
+  background-color: white;
+  border-radius: 25px;
+  margin: 20px 50px 0 0;
+  padding: 20px;
+}
+.reviewBox9Grid {
+  display: grid;
+  grid-template-columns: 9.5fr 0.5fr;
+  margin-top: 30px;
+}
+.likeBtn:hover {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.reviewBox9Grid-1 {
+  width: 80px;
+  height: 25px;
+  color: #3B3B3E;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 15px 0 0;
+}
+.reviewBox9Grid-3 {
+  width: 62px;
+  height: 25px;
+  border: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 15px 0 15px;
+}
+.reviewBox9Grid-2 {
+  display: flex;
+}
+.reviewWriteBtn {
+  width: 178px;
+  height: 66px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  line-height: 66px;
+  float: right;
+  margin: 30px 0;
+  border-radius: 25px;
+}
+.star_rating {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-flex;
+  float: left;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.star_rating .reviewWriteStar {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  display: inline-block;
+  background: url("/img/빈별.png") no-repeat;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+.star_rating .reviewWriteStar.on {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  display: inline-block;
+  background: url("/img/꽉찬별.png") no-repeat;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+
+.star_box {
+  width: 800px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 15px 0;
+  background: #f3f4f8;
+  border: 0;
+  border-radius: 10px;
+  height: 300px;
+  resize: none;
+  padding: 15px;
+  font-size: 24px;
+  font-family: sans-serif;
+}
+.reviewWriteBtn2 {
+  display: block;
+  width: 800px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 10px;
+  max-height: 50px;
+  padding: 15px 0;
+  font-size: 1.1em;
+  text-align: center;
+  background-color: #BBD0E9;
+}
+.reviewWriteModal {
+  display: none; /* 초기에는 모달 창을 숨깁니다 */
+  position: fixed; /* 모달 창을 고정 위치에 배치합니다 */
+  z-index: 1; /* 다른 요소 위에 표시되도록 합니다 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* 콘텐츠가 모달 창을 초과할 경우 스크롤이 가능하도록 합니다 */
+  background-color: rgba(0, 0, 0, 0.4); /* 반투명한 배경 */
+}
+
+.reviewWriteModal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 모달 창을 수직 가운데 정렬합니다 */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 25px;
+  width: 850px; /* 모달 창의 너비를 조정할 수 있습니다 */
+}
+
+.reviewModalCloseBtn {
+  color: #aaa;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.reviewModalCloseBtn:hover,
+.reviewModalCloseBtn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 로그인 화면 */
+
+.loginBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0e0e0e;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ring {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 6s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite;
+}
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.login {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+}
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+.login .inputBx input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  font-size: 1.2em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+}
+.login .inputBx input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: medium;
+}
+.login .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.login .links .signup-link {
+  padding: 0 15px;
+  text-decoration: underline;
+}
+
+.login .sign-inBx input[type="submit"] {
+  width: 100%;
+  background: rgb(94, 94, 94);
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+  transition: 0.3s;
+}
+.login .sign-inBx {
+  position: relative;
+  width: 100%;
+}
+
+.login .sign-inBx input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  font-size: 1.2em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+}
+.login .sign-inBx input:hover {
+  background: rgb(51, 51, 51);
+}
+
+/* 뒤로가기 버튼 스타일 */
+.login-back-button {
+  width: 100%;
+  height: 15px;
+  padding: 0 5px 0 10px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}

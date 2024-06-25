@@ -1,0 +1,285 @@
+/* 회원가입 추후에 수정필요 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0e0e0e;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.signup {
+  width: 100%;
+  background: #2a2a2a;
+  border-radius: 2em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupBox {
+  padding: 20px;
+  width: 100%;
+}
+
+.signupBox1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signupBox2 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signupBox3 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.signupBox3-1 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+
+.signupBox3-2 {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #444;
+  outline: none;
+}
+
+.signupBox3-2:focus {
+  border-color: #007bff;
+}
+
+.signupBox3-3 {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 5px;
+}
+
+.signupBox3-4 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.el_ttl {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+
+.el_input {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #444;
+  outline: none;
+}
+
+.el_input:focus {
+  border-color: #007bff;
+}
+
+.el_btn {
+  width: 120px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.el_btn:hover {
+  background: #0056b3;
+}
+
+.signupBoxCheckBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.signupBoxCheckBox label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.signupBoxCheckBox input[type="checkbox"] {
+  accent-color: #007bff;
+}
+
+.signupBox3-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 98%;
+}
+
+.signupBox3-result {
+  margin-top: 5px;
+}
+
+.el_btn--primary {
+  background: #28a745;
+  color: white;
+}
+
+.el_btn--primary:hover {
+  background: #218838;
+}
+
+.bl_stack .el_btn,
+.bl_stack .el_input {
+  margin-top: 10px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-shadow: 0 1px 0 #000;
+
+  .address-margin {
+    margin-top: 25px;
+  }
+
+  .signupBoxButtonWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* .signupBox2 내에 추가된 스타일을 확인 */
+  .signupBox2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 버튼 기본 스타일 유지 */
+  .el_btn {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .el_btn:hover {
+    background: #0056b3;
+  }
+
+  .el_btn--primary {
+    background: #28a745;
+    color: white;
+  }
+
+  .el_btn--primary:hover {
+    background: #218838;
+  }
+
+  --border-angle: 0turn; /* For animation. */
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #213,
+    #112 5%,
+    #112 60%,
+    #213 95%
+  );
+
+  border: solid 5px transparent;
+  border-radius: 2em;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    #08f,
+    #f03 99%,
+    transparent
+  );
+
+  background:
+      /* padding-box clip this background in to the overall element except the border. */ var(
+        --main-bg
+      )
+      padding-box,
+    /* border-box extends this background to the border space */
+      var(--gradient-border) border-box,
+    /* Duplicate main background to fill in behind the gradient border. You can remove this if you want the border to extend "outside" the box background. */
+      var(--main-bg) border-box;
+
+  background-position: center center;
+
+  animation: bg-spin 6s linear infinite;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+/* 뒤로가기 버튼 스타일 */
+.back-button {
+  height: 0;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  margin: 0 20px;
+  display: inline-block;
+}

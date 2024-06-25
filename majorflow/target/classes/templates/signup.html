@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>회원가입</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="signup">
+                <div class="signupBox">
+                    <!-- 뒤로가기 버튼 -->
+                    <div class="back-button" onclick="goBack()">
+                        ←
+                    </div>
+                    <div id="format-check-result" class="signupBox3-result" style="color: red"></div>
+                    <div class="signupBox1">회원가입</div>
+                    <div class="signupBox2">
+                        <div class="signupBoxGrid">
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">아이디</div>
+                                <div class="signupBox3-input">
+                                    <input class="signupBox3-2" type="text" id="userId" required>
+                                    <button class="el_btn" id="check-duplicate-btn"
+                                        onclick="checkDuplicateId()">중복체크</button>
+                                </div>
+                                <div id="duplicate-check-result" class="signupBox3-result"></div>
+                                <div class="signupBox3-3">사용자 ID는 4~12자 사이의 영문+숫자로 이루어져야 하며 영문으로 시작되어야 합니다.</div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">비밀번호</div>
+                                <input class="signupBox3-2" type="password" id="password" required>
+                                <div class="signupBox3-3">비밀번호는 6~20자로 되어야 합니다.</div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">비밀번호 확인</div>
+                                <input class="signupBox3-2" type="password" id="confirmPassword" required>
+                                <div class="signupBox3-3"></div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">이름</div>
+                                <input class="signupBox3-2" type="text" id="userName" required>
+                                <div class="signupBox3-3">이름은 2~20자 이내여야 합니다.</div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">닉네임</div>
+                                <div class="signupBox3-input">
+                                    <input class="signupBox3-2" type="text" id="nickname" required>
+                                    <button class="el_btn" id="check-duplicate-nickname-btn"
+                                        onclick="checkDuplicateNickname()">중복체크</button>
+                                </div>
+                                <div id="nickname-duplicate-check-result" class="signupBox3-result"></div>
+                                <div class="signupBox3-3">닉네임은 1~10자 이내여야 합니다.</div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">이메일</div>
+                                <input class="signupBox3-2" type="email" id="email" required>
+                                <div class="signupBox3-3"></div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">성별</div>
+                                <div class="signupBox3-4">
+                                    <input type="radio" name="gender" value="male" required> 남자
+                                    <input type="radio" name="gender" value="female" required> 여자
+                                </div>
+                                <div class="signupBox3-3"></div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">핸드폰 번호</div>
+                                <input class="signupBox3-2" type="text" id="phoneNumber" required>
+                                <div class="signupBox3-3"></div>
+                            </div>
+                            <!-- 주소 항목 -->
+                            <div class="bl_stack form">
+                                <div class="el_ttl">주소</div>
+                                <div class="bl_stack bl_stack--row">
+                                    <input type="text" class="el_input hp_txt-center" placeholder="" disabled
+                                        id="zonecode" required />
+                                    <button class="el_btn" id="find-addr-btn" onclick="findAddr()">우편번호 찾기</button>
+                                </div>
+                                <input type="text" class="el_input" placeholder="" disabled id="roadAddress" required />
+                                <input type="text" class="el_input" placeholder="상세주소를 입력해주세요." id="roadAddressDetail"
+                                    required />
+                                <button class="el_btn" id="register-btn" onclick="registerAddr()">주소 등록하기</button>
+                            </div>
+                            <div class="signupBox3 address-margin">
+                                <div class="signupBox3-1">생년월일</div>
+                                <input class="signupBox3-2" type="date" id="birthDate" required>
+                                <div class="signupBox3-3"></div>
+                            </div>
+                            <div class="signupBox3">
+                                <div class="signupBox3-1">선호도(장르)</div>
+                                <div class="signupBoxCheckBox">
+                                    <label><input type="checkbox" name="genre" value="클래식"
+                                            onchange="limitCheckboxSelection()"> 클래식</label>
+                                    <label><input type="checkbox" name="genre" value="재즈"
+                                            onchange="limitCheckboxSelection()"> 재즈</label>
+                                    <label><input type="checkbox" name="genre" value="락"
+                                            onchange="limitCheckboxSelection()"> 락</label>
+                                    <label><input type="checkbox" name="genre" value="CCM"
+                                            onchange="limitCheckboxSelection()"> CCM</label>
+                                    <label><input type="checkbox" name="genre" value="K-pop"
+                                            onchange="limitCheckboxSelection()"> K-POP</label>
+                                    <label><input type="checkbox" name="genre" value="pop"
+                                            onchange="limitCheckboxSelection()"> POP</label>
+                                    <label><input type="checkbox" name="genre" value="J-pop"
+                                            onchange="limitCheckboxSelection()"> J-POP</label>
+                                    <label><input type="checkbox" name="genre" value="R&B"
+                                            onchange="limitCheckboxSelection()"> R&B</label>
+                                    <label><input type="checkbox" name="genre" value="뉴에이지"
+                                            onchange="limitCheckboxSelection()"> 뉴에이지</label>
+                                    <label><input type="checkbox" name="genre" value="트로트"
+                                            onchange="limitCheckboxSelection()"> 트로트</label>
+                                </div>
+                                <div id="genre-error" class="signupBox3-result" style="color: rgb(255, 255, 255);">
+                                </div> <!-- 장르 선택 에러 메시지 표시 요소 추가 -->
+                            </div>
+                        </div>
+                        <div class="signupBoxButtonWrapper">
+                            <button class="el_btn el_btn--primary" onclick="register()">등록</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/signup.js"></script>
+    <script>
+        document.getElementById('phoneNumber').addEventListener('input', function (event) {
+            formatPhoneNumber(event.target);
+        });
+    </script>
+</body>
+
+</html>

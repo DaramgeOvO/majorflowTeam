@@ -1,0 +1,7 @@
+"user_id","address","birth_date","email","gender","genre","nickname","password","phone_number","user_name","authority_authority_name"
+garam12,대전,2000-01-01,garam12@email.com,female,jazz,gryang,"1234","010-0000-0000",양가람,ROLE_ADMIN
+geonho12,대전,2000-01-01,geonho12@email.com,male,rock,ghjo,$2a$10$FMB6M6bnU9RRUl2l1SIfBu.Cn7GI0qrJGSXstet/bbEy4i1M2ZOhm,"010-1111-1111",조건호,ROLE_TEACHER
+kyembi12,대구,2000-01-01,kyembi12@email.com,Female,classic,kbo,$2a$10$trVyJQRtFYXPT/dN23wza.Eo3X2iBM14mhAX.uiUu2SUAeNpnVrcy,"010-1111-1111",오겸비,ROLE_TEACHER
+peniel12,대전,2000-01-01,peniel@email.com,Female,classic,pnjo,$2a$10$d9YeIDk/SI.2NAIq92rMkejlPl1frLbTBnSaKoRz536LPVjafMHri,"010-1111-1111",조브니엘,ROLE_TEACHER
+steve12,대전,2000-01-01,steve12@email.com,male,pop,steve,$2a$10$75oRDPyTzFx6ZogxqzW2UO516tvNd24lgtwJNrbBHBugSsDyKvQkO,"010-1111-1111",스티브,ROLE_USER
+sua12,대전,2000-01-01,sua12@email.com,female,pop,sajo,$2a$10$nlore8Uwf/ubQRTjTWGV3OiOlL2bifgP3RMW7lZvLVXSdNG2bZOoO,"010-1111-1111",조수아,ROLE_TEACHER
