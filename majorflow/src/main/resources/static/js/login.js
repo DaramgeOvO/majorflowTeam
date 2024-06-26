@@ -12,6 +12,29 @@ document.querySelector("#password").addEventListener("change", (e) => {
   password = e.target.value;
 });
 
+/* 로그인창 모달 */
+
+function openModal(message) {
+  const alertModal = document.getElementById("myAlertModal");
+  const alertModalMessage = document.getElementById("alertModalMessage");
+  alertModalMessage.textContent = message;
+  alertModal.style.display = "block";
+}
+
+function closeModal() {
+  const alertModal = document.getElementById("myAlertModal");
+  alertModal.style.display = "none";
+}
+
+document.querySelector(".alertClose").addEventListener("click", () => {
+  closeModal();
+});
+
+document.getElementById("alertConfirm").addEventListener("click", () => {
+  closeModal();
+});
+
+
 document.querySelector(".sign-inBx").addEventListener("click", () => {
   const data = {
     userId: userId,
@@ -19,19 +42,22 @@ document.querySelector(".sign-inBx").addEventListener("click", () => {
   };
 
   axios
-    .post(urlLogin, data, { withCredentials: true })
-    .then((response) => {
-      console.log("데이터: ", response);
-      sessionCurrent();
-      alert("로그인이 완료되었습니다");
-      const previousPage = document.referrer;
-      window.location.href = previousPage ? previousPage : "index.html";
-    })
-    .catch((error) => {
-      console.log("에러 발생: ", error);
-      alert("아이디 또는 비밀번호가 올바르지 않습니다");
-    });
-});
+      .post(urlLogin, data, { withCredentials: true })
+      .then((response) => {
+        console.log("데이터: ", response);
+        sessionCurrent();
+        openModal("로그인이 완료되었습니다");
+        document.getElementById("alertConfirm").addEventListener("click", () => {
+          closeModal();
+          const previousPage = document.referrer;
+          window.location.href = previousPage ? previousPage : "index.html";
+        });
+      })
+      .catch((error) => {
+        console.log("에러 발생: ", error);
+        openModal("아이디 또는 비밀번호가 올바르지 않습니다");
+      });
+  });
 
 function sessionCurrent() {
   axios

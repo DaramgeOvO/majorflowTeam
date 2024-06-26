@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   let userId;
+  let itemToDelete;
+  let itemIndexToDelete;
   sessionCurrent();
 
   // 세션을 통해 현재 사용자를 확인하는 함수
@@ -64,10 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cartBoxRemove.classList.add("cartBoxRemove");
       cartBoxRemove.textContent = "삭제";
       cartBoxRemove.addEventListener("click", () => {
-        if (confirm("장바구니에서 삭제하시겠습니까?")) {
-          item.splice(index, 1);
-          fetchAndRenderCart(item, userId);
-        }
+        itemToDelete = item;
+        itemIndexToDelete = index;
+        openModal("장바구니에서 삭제하시겠습니까?");
       });
 
       cartItemsContainer.appendChild(cartBox1);
@@ -89,27 +90,38 @@ document.addEventListener("DOMContentLoaded", function () {
     totalPriceContainer.textContent = `총 가격: ${totalPrice.toLocaleString()}원`;
   }
 
+  // 구매 확인 모달 열기
   document.querySelector(".cartBox6").addEventListener("click", () => {
-    if (confirm("구매하시겠습니까?")) {
-      let cartItems = JSON.parse(localStorage.getItem(userId));
-      localStorage.setItem(userId + "_purchased", JSON.stringify(cartItems));
-      localStorage.removeItem(userId);
-      window.location.reload();
-      alert("구매 완료! 마이페이지에서 확인할 수 있습니다.");
-    }
+    openModal("구매하시겠습니까?");
   });
 
+  function openModal(message) {
+    const alertModal = document.getElementById("myAlertModal");
+    const alertModalMessage = document.getElementById("alertModalMessage");
+    alertModalMessage.textContent = message;
+    alertModal.style.display = "block";
+  }
+
+  function closeModal() {
+    const alertModal = document.getElementById("myAlertModal");
+    alertModal.style.display = "none";
+  }
+
   document.querySelector(".menuLogoutBtn").addEventListener("click", () => {
-    if (confirm("로그아웃하시겠습니까?")) {
+    openModal("로그아웃하시겠습니까?");
+  });
+
+  // 모달 내 확인 버튼 클릭 시 로그아웃 처리 또는 장바구니 아이템 삭제 처리
+  document.getElementById("alertConfirm").addEventListener("click", () => {
+    const alertModalMessage = document.getElementById("alertModalMessage").textContent;
+
+    if (alertModalMessage === "로그아웃하시겠습니까?") {
       axios
-        .post(
-          "http://localhost:8080/user/logout",
-          {},
-          { withCredentials: true }
-        )
+        .post("http://localhost:8080/user/logout", {}, { withCredentials: true })
         .then((response) => {
           console.log("데이터: ", response);
           if (response.status === 200) {
+            closeModal(); // 모달 닫기
             alert("로그아웃 되었습니다");
             document.querySelector(".menuLoginBtn").classList.remove("hidden");
             document.querySelector(".menuLogoutBtn").classList.add("hidden");
@@ -118,6 +130,21 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => {
           console.log("에러 발생: ", error);
         });
+    } else if (alertModalMessage === "장바구니에서 삭제하시겠습니까?") {
+      itemToDelete.splice(itemIndexToDelete, 1);
+      fetchAndRenderCart(itemToDelete, userId);
+      closeModal(); // 모달 닫기
+    } else if (alertModalMessage === "구매하시겠습니까?") {
+      let cartItems = JSON.parse(localStorage.getItem(userId));
+      localStorage.setItem(userId + "_purchased", JSON.stringify(cartItems));
+      localStorage.removeItem(userId);
+      window.location.reload();
+      closeModal(); // 모달 닫기
+      openModal("구매 완료! 마이페이지에서 확인할 수 있습니다.");
     }
   });
+
+  // 모달 내 취소 버튼 클릭 시 모달 닫기
+  document.querySelector(".alertClose").addEventListener("click", closeModal);
+
 });

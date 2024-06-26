@@ -56,7 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
               );
             }
           } else {
-            alert("로그인이 필요합니다.");
+            openModal("로그인이 필요합니다.", () => {
+              // 확인 버튼 클릭 시 로그인 페이지로 이동
+              window.location.href = "login.html";
+            });
           }
         });
 
@@ -154,18 +157,36 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  function openModal(message, callback) {
+    const alertModal = document.getElementById("myAlertModal");
+    const alertModalMessage = document.getElementById("alertModalMessage");
+    alertModalMessage.textContent = message;
+    alertModal.style.display = "block";
+
+    // 확인 버튼 클릭 시 콜백 실행
+    const confirmButton = document.getElementById("alertConfirm");
+    confirmButton.onclick = function () {
+      callback && callback(); // 콜백이 있을 경우 실행
+      closeModal(); // 모달 닫기
+    };
+  }
+
+  function closeModal() {
+    const alertModal = document.getElementById("myAlertModal");
+    alertModal.style.display = "none";
+  }
+
+  // 로그아웃 버튼 클릭 시 확인 모달 열기
   document.querySelector(".menuLogoutBtn").addEventListener("click", () => {
-    if (confirm("로그아웃하시겠습니까?")) {
+    openModal("로그아웃하시겠습니까?", () => {
       axios
-        .post(
-          "http://localhost:8080/user/logout",
-          {},
-          { withCredentials: true }
-        )
+        .post(urlLogout, {}, { withCredentials: true })
         .then((response) => {
           console.log("데이터: ", response);
           if (response.status == 200) {
-            alert("로그아웃 되었습니다");
+            openModal("로그아웃 되었습니다"); // 모달 열기
+            closeModal();
+            // 여기에 로그아웃 성공 후의 추가 동작을 넣으세요
             document.querySelector(".menuLoginBtn").classList.remove("hidden");
             document.querySelector(".menuLogoutBtn").classList.add("hidden");
           }
@@ -173,7 +194,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => {
           console.log("에러 발생: ", error);
         });
-    }
+    });
+  });
+
+  // 모달 내 취소 버튼 클릭 시 모달 닫기
+  document.querySelector(".alertClose").addEventListener("click", () => {
+    closeModal(); // 모달 닫기
   });
 
   function addToCart(userId, lectureId, lectureName, teacherName, type, price) {
@@ -182,12 +208,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => {
         if (response.status === 201) {
           addToSessionCart(lectureName, teacherName, type, price);
-          alert("선택한 항목이 장바구니에 담겼습니다.");
+          openModal("선택한 항목이 장바구니에 담겼습니다.", closeModal); // 확인 버튼 클릭 시 모달 닫기
         }
       })
       .catch((error) => {
         console.error("Error adding to cart:", error);
-        alert("장바구니에 담는 도중 오류가 발생했습니다.");
+        openModal("장바구니에 담는 도중 오류가 발생했습니다.", closeModal); // 확인 버튼 클릭 시 모달 닫기
       });
   }
 

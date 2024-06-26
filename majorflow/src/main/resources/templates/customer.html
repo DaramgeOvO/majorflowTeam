@@ -61,10 +61,10 @@
   <div class="box2">
     <div class="wbox noticeBox">
       <div class="noticeBox1">공지사항</div>
-      <div class="noticeBox2">
+      <div class="noticeBox2" id="noticeContent">
         <div class="noticeBox3">
           <div class="noticeBox3-1">공지 제목</div>
-          <div class="noticeBox3-1">작성일자</div>
+          <div class="noticeBox3Date">작성일자</div>
         </div>
         <div class="noticeBoxLine"></div>
         <div class="noticeBox3-4">
@@ -79,27 +79,21 @@
           <span class="noticeBox3-3 close">-</span>
         </a>
       </div>
-      <div class="noticeBox2">
-        <div class="noticeBox3">
-          <div class="noticeBox3-1">공지 제목</div>
-          <div class="noticeBox3-1">작성일자</div>
-        </div>
-        <div class="noticeBoxLine"></div>
-        <div class="noticeBox3-4">
-          <p class="noticeBox4">공지내용</p>
-          <div class="noticeBox5">
-            <img src="/img/말풍선.png" />
-            <div class="noticeBox5-1">댓글달기</div>
-          </div>
-        </div>
-        <a class="noticeBox3-2">
-          <span class="noticeBox3-3 open">+</span>
-          <span class="noticeBox3-3 close">-</span>
-        </a>
-      </div>
+
     </div>
     <!-- 공지사항 등록 부분 제거 -->
     <!-- 1:1문의 등록 부분 제거-->
+
+    <div id="myAlertModal" class="alertModal">
+      <div class="alertModal-content">
+        <p id="alertModalMessage"></p>
+        <div class="alertModalBtn">
+          <button id="alertConfirm">확인</button>
+          <button class="alertClose">취소</button>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="footer">
     <h3>FOOTER</h3>
