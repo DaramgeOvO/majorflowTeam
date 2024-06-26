@@ -1,5 +1,5 @@
 const urlAdmin = "http://localhost:8080/user/user";
-const urlLectures = "http://localhost:8080/lectures";
+const urlLectures = "http://localhost:8080/edutech/get";
 
 document.querySelector(".noticeWriteBtn").addEventListener("click", () => {
   document.querySelector(".noticeWriteBox").classList.remove("hidden");
@@ -11,6 +11,45 @@ document.querySelector(".adminPageBtn").addEventListener("click", () => {
   document.querySelector(".noticeWriteBox").classList.add("hidden");
 });
 
+sessionCurrent();
+
+function sessionCurrent() {
+  axios
+    .get("http://localhost:8080/user/current", { withCredentials: true })
+    .then((response) => {
+      console.log("데이터: ", response);
+      if (response.status == 200 && response.data.userId !== "anonymousUser") {
+        console.log("세션 유지");
+        const userId = response.data.userId;
+        document.querySelector(".menuLoginBtn").classList.add("hidden");
+        document.querySelector(".menuLogoutBtn").classList.remove("hidden");
+      } else {
+        alert("로그인이 필요합니다.");
+        window.location.href = "login.html";
+      }
+    })
+    .catch((error) => {
+      console.log("에러 발생: ", error);
+    });
+}
+
+document.querySelector(".menuLogoutBtn").addEventListener("click", () => {
+  if (confirm("로그아웃하시겠습니까?")) {
+    axios
+      .post(urlLogout, {}, { withCredentials: true })
+      .then((response) => {
+        console.log("데이터: ", response);
+        if (response.status == 200) {
+          alert("로그아웃 되었습니다");
+          document.querySelector(".menuLoginBtn").classList.remove("hidden");
+          document.querySelector(".menuLogoutBtn").classList.add("hidden");
+        }
+      })
+      .catch((error) => {
+        console.log("에러 발생: ", error);
+      });
+  }
+});
 
 axios
   .get(urlAdmin)
@@ -81,7 +120,7 @@ function displayAdmin(data) {
 axios
   .get(urlLectures)
   .then((response) => {
-    console.log("강의 데이터: ", response.data);
+    console.log("유저 데이터: ", response.data);
     displayCourseUsers(response.data);
   })
   .catch((error) => {
@@ -89,19 +128,35 @@ axios
   });
 
 function displayCourseUsers(lectureData) {
-  lectureData.forEach((lectureData) => {
-    const courseUserList = document.querySelector(
-      `.${lectureData.courseName.toLowerCase()}LectureUserName`
+  lectureData.forEach((purchasedLecture) => {
+    const lectureName = purchasedLecture.lecture.lectureName;
+    const userId = purchasedLecture.user.userId;
+    const lectureUserName = document.createElement("div");
+    const celloLectureUserName = document.querySelector(
+      ".celloLectureUserName"
     );
+    const pianoLectureUserName = document.querySelector(
+      ".pianoLectureUserName"
+    );
+    const guitarLectureUserName = document.querySelector(
+      ".guitarLectureUserName"
+    );
+    const drumLectureUserName = document.querySelector(".drumLectureUserName");
+    lectureUserName.textContent = userId;
 
-    course.students.forEach((student) => {
-      const studentElement = document.createElement("div");
-      studentElement.classList.add("studentName");
-      studentElement.textContent = student.name;
-      courseUserList.appendChild(studentElement);
-    });
+    if (lectureName == "첼로") {
+      celloLectureUserName.appendChild(lectureUserName);
+    } else if (lectureName == "피아노") {
+      pianoLectureUserName.appendChild(lectureUserName);
+    } else if (lectureName == "기타") {
+      guitarLectureUserName.appendChild(lectureUserName);
+    } else if (lectureName == "드럼") {
+      drumLectureUserName.appendChild(lectureUserName);
+    }
   });
+
 }
+
 document.querySelectorAll(".courseUserGrid").forEach((courseSection) => {
   courseSection.addEventListener("click", () => {
     courseSection.classList.toggle("active");
