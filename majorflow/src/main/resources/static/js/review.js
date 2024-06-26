@@ -158,6 +158,59 @@ function formatDate(dateString) {
   return `${year}-${month}-${day}`;
 }
 
+function fetchReviews() {
+  axios
+    .get(urlReview, { withCredentials: true })
+    .then((response) => {
+      console.log("리뷰 데이터:", JSON.stringify(response.data, null, 2));
+      displayReviews(response.data);
+      displayReviewCount(response.data.length); // 리뷰 개수 표시 함수 호출
+    })
+    .catch((error) => {
+      console.log("리뷰 가져오기 오류:", error);
+    });
+}
+
+// 리뷰 개수를 표시하는 새로운 함수
+function displayReviewCount(count) {
+  const reviewCountElement = document.getElementById('reviewBox3-1');
+  if (reviewCountElement) {
+    reviewCountElement.textContent = `${count} 개`;
+  }
+};
+
+// 평균 평점을 계산하는 함수
+function calculateAverageRating(reviews) {
+  if (reviews.length === 0) return 0;
+  const sum = reviews.reduce((total, review) => total + review.rating, 0);
+  return (sum / reviews.length).toFixed(1); // 소수점 한 자리까지 표시
+}
+
+// 평균 평점을 표시하는 함수
+function displayAverageRating(average) {
+  const averageRatingElement = document.getElementById('reviewBox3-2');
+  if (averageRatingElement) {
+    averageRatingElement.innerHTML = `★ ${average}`;
+  }
+}
+
+// fetchReviews 함수 수정
+function fetchReviews() {
+  axios
+    .get(urlReview, { withCredentials: true })
+    .then((response) => {
+      console.log("리뷰 데이터:", JSON.stringify(response.data, null, 2));
+      const reviews = response.data;
+      displayReviews(reviews);
+      displayReviewCount(reviews.length);
+      const averageRating = calculateAverageRating(reviews);
+      displayAverageRating(averageRating);
+    })
+    .catch((error) => {
+      console.log("리뷰 가져오기 오류:", error);
+    });
+}
+
 document.querySelectorAll(".subMenu > div").forEach((div) => {
   div.addEventListener("click", () => {
     document
