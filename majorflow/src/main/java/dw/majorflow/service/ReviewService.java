@@ -18,14 +18,12 @@ public class ReviewService {
     ReviewRepository reviewRepository;
 
     public Review saveReview(Review review) {
-        review.setReviewTime(LocalDateTime.now());
         return reviewRepository.save(review);
     }
 
     public List<Review> getReviewAll() {
         return reviewRepository.findAll();
     }
-
 
     public List<ReviewDto> getReviewAllByDto() {
         List<Review> reviewList = reviewRepository.findAll();

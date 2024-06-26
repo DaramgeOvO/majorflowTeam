@@ -1,190 +1,167 @@
 <!DOCTYPE html>
 <html lang="kr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/admin.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <title>관리자페이지</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="box1">
-        <div class="wbox mainMenu">
-          <div>
-            <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
-          </div>
-          <div>
-            <span class="centerMenu"><a href="about.html">학원소개</a></span>
-            <span class="centerMenu"><a href="course.html">수강안내</a></span>
-            <span class="centerMenu"
-              ><a href="enrollment.html">수강신청</a></span
-            >
-            <span class="centerMenu"><a href="customer.html">고객센터</a></span>
-          </div>
 
-          <div>
-            <span class="rightMenu menuReviewBtn"
-              ><a href="review.html">수강후기</a></span
-            >
-            <span class="rightMenu">
-              <a href="mypage.html"
-                ><img src="/img/마이페이지.png" alt="" class="mypageIcon"
-              /></a>
-            </span>
-            <span class="rightMenu">
-              <a href="cart.html"
-                ><img src="/img/장바구니.png" alt="" class="cartIcon"
-              /></a>
-            </span>
-            <span class="rightMenu menuLogoutBtn">로그아웃</span>
-            <span class="rightMenu menuLoginBtn"
-              ><a href="login.html">로그인</a></span
-            >
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <title>관리자페이지</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box1">
+      <div class="wbox mainMenu">
+        <div>
+          <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
         </div>
-        <div></div>
-        <div class="wbox title">
-          <div>ADMIN</div>
+        <div>
+          <span class="centerMenu"><a href="about.html">학원소개</a></span>
+          <span class="centerMenu"><a href="course.html">수강안내</a></span>
+          <span class="centerMenu"><a href="enrollment.html">수강신청</a></span>
+          <span class="centerMenu"><a href="customer.html">고객센터</a></span>
         </div>
-        <div class="wbox subMenu">
-          <div class="adminPageBtn active">관리자페이지</div>
-          <div class="noticeWriteBtn">공지사항 등록</div>
-        </div>
-      </div>
-      <div class="box2">
-        <div class="progress-container"></div>
-        <div class="wbox adminPageBox">
-          <div class="adminDashboard">관리자 대시보드</div>
-          <div class="adminUserInformation">
-            <div class="adminSubTitle">유저정보</div>
-            <div class="adminUserTable">
-              <table>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>이름</th>
-                    <th>닉네임</th>
-                    <th>성별</th>
-                    <th>주소</th>
-                    <th>생년월일</th>
-                    <th>이메일</th>
-                    <th>휴대폰번호</th>
-                    <th>장르</th>
-                    <th>권한부여</th>
-                  </tr>
-                </thead>
-                <tbody class="tbody">
-                  <!--                        <tr class="tr">-->
-                  <!--                            <td class="adminUserId">peniel12</td>-->
-                  <!--                            <td class="adminUserName">조브니엘</td>-->
-                  <!--                            <td class="adminUserNickname">pnjo</td>-->
-                  <!--                            <td class="adminUserGender">female</td>-->
-                  <!--                            <td class="adminUserAddress">대전</td>-->
-                  <!--                            <td class="adminUserBirthday">2000-01-01</td>-->
-                  <!--                            <td class="adminUserEmail">peniel@email.com</td>-->
-                  <!--                            <td class="adminUserPhoneNum">010-1111-1111</td>-->
-                  <!--                            <td class="adminUserGenre">classic</td>-->
-                  <!--                            <td class="adminUserAuthority">-->
-                  <!--                                <input type="radio" name="authority" value="user" />-->
-                  <!--                                학생-->
-                  <!--                                <input type="radio" name="authority" value="teacher" />-->
-                  <!--                                선생님-->
-                  <!--                            </td>-->
-                  <!--                        </tr>-->
-                </tbody>
-              </table>
-            </div>
-            <div class="adminUserSaveBtn">저장하기</div>
-          </div>
-          <div class="courseUserSubTitle">강의별유저보기(이름못정함)</div>
-          <div class="lectureCourseUserGrid">
-            <div class="celloLectureUser">
-              <div class="courseUserGrid">
-                <div class="lectureUserTitle">첼로</div>
-              </div>
-              <div class="lectureUserTitleDown">
-                <p class="celloLectureUserName">
-                  첼로강의 듣는 유저이름뜨게 구현하기!
-                </p>
-              </div>
-            </div>
-            <div class="pianoLectureUser">
-              <div class="courseUserGrid">
-                <div class="lectureUserTitle">피아노</div>
-              </div>
-              <div class="lectureUserTitleDown">
-                <p class="pianoLectureUserName">
-                  피아노강의 듣는 유저이름뜨게 구현하기!
-                </p>
-              </div>
-            </div>
-            <div class="guitarLectureUser">
-              <div class="courseUserGrid">
-                <div class="lectureUserTitle">기타</div>
-              </div>
-              <div class="lectureUserTitleDown">
-                <p class="guitarLectureUserName">
-                  기타강의 듣는 유저이름뜨게 구현하기!
-                </p>
-              </div>
-            </div>
-            <div class="drumLectureUser">
-              <div class="courseUserGrid">
-                <div class="lectureUserTitle">드럼</div>
-              </div>
-              <div class="lectureUserTitleDown">
-                <p class="drumLectureUserName">
-                  드럼강의 듣는 유저이름뜨게 구현하기!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="courseModal" class="userCourseModal">
-          <div class="courseModal-content">
-            <span class="courseModalClose">&times;</span>
-            <div class="userCourse">
-              <div class="userCourseText">##님이 수강중인 강의</div>
-              <div class="userCourseGrid">
-                <div class="courseTeacherImg"></div>
-                <div class="courseTitle">강의명</div>
-                <div class="courseTeacherName">교수명</div>
-                <div class="courseLecturePrice">가격</div>
-              </div>
-              <div class="userCourseGrid">
-                <div class="courseTeacherImg"></div>
-                <div class="courseTitle">강의명</div>
-                <div class="courseTeacherName">교수명</div>
-                <div class="courseLecturePrice">가격</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 공지사항 등록 -->
-        <div class="wbox noticeWriteBox hidden">
-          <div class="noticeBox1">공지사항 등록</div>
-          <textarea
-            class="noticeWriteBox1"
-            placeholder="제목을 입력해주세요."
-          ></textarea>
-          <textarea
-            class="noticeWriteBox2"
-            placeholder="내용을 작성해주세요."
-          ></textarea>
-          <div class="noticeWriteBox3">글쓰기</div>
+
+        <div>
+          <span class="rightMenu menuReviewBtn"><a href="review.html">수강후기</a></span>
+          <span class="rightMenu">
+            <a href="mypage.html"><img src="/img/마이페이지.png" alt="" class="mypageIcon" /></a>
+          </span>
+          <span class="rightMenu">
+            <a href="cart.html"><img src="/img/장바구니.png" alt="" class="cartIcon" /></a>
+          </span>
+          <span class="rightMenu menuLogoutBtn">로그아웃</span>
+          <span class="rightMenu menuLoginBtn"><a href="login.html">로그인</a></span>
         </div>
       </div>
-      <div class="footer">
-        <h3>FOOTER</h3>
+      <div></div>
+      <div class="wbox title">
+        <div>ADMIN</div>
+      </div>
+      <div class="wbox subMenu">
+        <div class="adminPageBtn active">관리자페이지</div>
+        <div class="noticeWriteBtn">공지사항 등록</div>
       </div>
     </div>
-    <script src="/js/admin.js"></script>
-  </body>
+    <div class="box2">
+      <div class="progress-container"></div>
+      <div class="wbox adminPageBox">
+        <div class="adminDashboard">관리자 대시보드</div>
+        <div class="adminUserInformation">
+          <div class="adminSubTitle">유저정보</div>
+          <div class="adminUserTable">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>이름</th>
+                  <th>닉네임</th>
+                  <th>성별</th>
+                  <th>주소</th>
+                  <th>생년월일</th>
+                  <th>이메일</th>
+                  <th>휴대폰번호</th>
+                  <th>장르</th>
+                </tr>
+              </thead>
+              <tbody class="tbody">
+                <!--                        <tr class="tr">-->
+                <!--                            <td class="adminUserId">peniel12</td>-->
+                <!--                            <td class="adminUserName">조브니엘</td>-->
+                <!--                            <td class="adminUserNickname">pnjo</td>-->
+                <!--                            <td class="adminUserGender">female</td>-->
+                <!--                            <td class="adminUserAddress">대전</td>-->
+                <!--                            <td class="adminUserBirthday">2000-01-01</td>-->
+                <!--                            <td class="adminUserEmail">peniel@email.com</td>-->
+                <!--                            <td class="adminUserPhoneNum">010-1111-1111</td>-->
+                <!--                            <td class="adminUserGenre">classic</td>-->
+                <!--                            <td class="adminUserAuthority">-->
+                <!--                                <input type="radio" name="authority" value="user" />-->
+                <!--                                학생-->
+                <!--                                <input type="radio" name="authority" value="teacher" />-->
+                <!--                                선생님-->
+                <!--                            </td>-->
+                <!--                        </tr>-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="courseUserSubTitle">강의별유저보기(이름못정함)</div>
+        <div class="lectureCourseUserGrid">
+          <div class="celloLectureUser">
+            <div class="courseUserGrid">
+              <div class="lectureUserTitle">첼로</div>
+
+            </div>
+            <div class="lectureUserTitleDown">
+              <p class="celloLectureUserName">첼로강의 듣는 유저이름뜨게 구현하기!</p>
+            </div>
+          </div>
+          <div class="pianoLectureUser">
+            <div class="courseUserGrid">
+              <div class="lectureUserTitle">피아노</div>
+            </div>
+            <div class="lectureUserTitleDown">
+              <p class="pianoLectureUserName">피아노강의 듣는 유저이름뜨게 구현하기!</p>
+            </div>
+          </div>
+          <div class="guitarLectureUser">
+            <div class="courseUserGrid">
+              <div class="lectureUserTitle">기타</div>
+            </div>
+            <div class="lectureUserTitleDown">
+              <p class="guitarLectureUserName">기타강의 듣는 유저이름뜨게 구현하기!</p>
+            </div>
+          </div>
+          <div class="drumLectureUser">
+            <div class="courseUserGrid">
+              <div class="lectureUserTitle">드럼</div>
+            </div>
+            <div class="lectureUserTitleDown">
+              <p class="drumLectureUserName">드럼강의 듣는 유저이름뜨게 구현하기!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="courseModal" class="userCourseModal">
+        <div class="courseModal-content">
+          <span class="courseModalClose">&times;</span>
+          <div class="userCourse">
+            <div class="userCourseText">##님이 수강중인 강의</div>
+            <div class="userCourseGrid">
+              <div class="courseTeacherImg"></div>
+              <div class="courseTitle">강의명</div>
+              <div class="courseTeacherName">교수명</div>
+              <div class="courseLecturePrice">가격</div>
+            </div>
+            <div class="userCourseGrid">
+              <div class="courseTeacherImg"></div>
+              <div class="courseTitle">강의명</div>
+              <div class="courseTeacherName">교수명</div>
+              <div class="courseLecturePrice">가격</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 공지사항 등록 -->
+      <div class="wbox noticeWriteBox hidden">
+        <div class="noticeBox1">공지사항 등록</div>
+        <textarea class="noticeWriteBox1" placeholder="제목을 입력해주세요."></textarea>
+        <textarea class="noticeWriteBox2" placeholder="내용을 작성해주세요."></textarea>
+        <div class="noticeWriteBox3">글쓰기</div>
+      </div>
+    </div>
+    <div class="footer">
+      <h3>FOOTER</h3>
+    </div>
+  </div>
+  <script src="/js/admin.js"></script>
+</body>
+
 </html>

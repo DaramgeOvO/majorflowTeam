@@ -1,161 +1,129 @@
 <!DOCTYPE html>
 <html lang="kr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-      rel="stylesheet"
-    />
-    <title>수강안내-전체강좌</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="box1">
-        <div class="wbox mainMenu">
-          <div>
-            <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
-          </div>
-          <div>
-            <span class="centerMenu"><a href="about.html">학원소개</a></span>
-            <span class="centerMenu"><a href="course.html">수강안내</a></span>
-            <span class="centerMenu"
-              ><a href="enrollment.html">수강신청</a></span
-            >
-            <span class="centerMenu"><a href="customer.html">고객센터</a></span>
-          </div>
 
-          <div>
-            <span class="rightMenu menuReviewBtn"
-              ><a href="review.html">수강후기</a></span
-            >
-            <span class="rightMenu">
-              <a href="mypage.html"
-                ><img src="/img/마이페이지.png" alt="" class="mypageIcon"
-              /></a>
-            </span>
-            <span class="rightMenu">
-              <a href="cart.html"
-                ><img src="/img/장바구니.png" alt="" class="cartIcon"
-              /></a>
-            </span>
-            <span class="rightMenu menuLogoutBtn">로그아웃</span>
-            <span class="rightMenu menuLoginBtn"
-              ><a href="login.html">로그인</a></span
-            >
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
+  <title>수강안내-전체강좌</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box1">
+      <div class="wbox mainMenu">
+        <div>
+          <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
         </div>
-        <div></div>
-        <div class="wbox title">
-          <div>COURSE</div>
+        <div>
+          <span class="centerMenu"><a href="about.html">학원소개</a></span>
+          <span class="centerMenu"><a href="course.html">수강안내</a></span>
+          <span class="centerMenu"><a href="enrollment.html">수강신청</a></span>
+          <span class="centerMenu"><a href="customer.html">고객센터</a></span>
         </div>
-        <div class="wbox subMenu">
-          <div class="allCourseBtn active">전체강좌</div>
-          <div class="tasteCourseBtn">맛보기 강좌</div>
-          <div class="coursePriceGuideBtn">수강료 안내</div>
-        </div>
-      </div>
-      <div class="box2">
-        <div class="wbox allCourseBox">
-          <div class="courseBox">전체강좌</div>
-          <div class="allCourse"></div>
-        </div>
-        <div class="wbox allCourseDetailBox hidden">
-          <div class="detailedBox2"></div>
-        </div>
-        <div class="wbox tasteCourseBox hidden">
-          <div class="tasteBox">맛보기 강좌</div>
-          <div class="tasteCourse">
-            <div class="tasteCourseClick">
-              <div
-                class="tasteCourseClickImg"
-                data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%98%A4%EA%B2%B8%EB%B9%84-%ED%94%BC%EC%95%84%EB%85%B8.mp4 "
-              >
-                <img
-                  src="/img/피아노-오겸비.png"
-                  alt="피아노-오겸비"
-                  class="tasteCourseImage"
-                />
-              </div>
-              <div>피아노</div>
-              <div>오겸비 강사</div>
-            </div>
-            <div class="tasteCourseClick">
-              <div
-                class="tasteCourseClickImg"
-                data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%98%A4%EA%B2%B8%EB%B9%84-%ED%94%BC%EC%95%84%EB%85%B8.mp4"
-              >
-                <img
-                  src="/img/피아노-오겸비.png"
-                  alt="피아노-오겸비"
-                  class="tasteCourseImage"
-                />
-              </div>
-              <div>첼로</div>
-              <div>조브니엘 강사</div>
-            </div>
-            <div class="tasteCourseClick">
-              <div
-                class="tasteCourseClickImg"
-                data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%A1%B0%EA%B1%B4%ED%98%B8-%EA%B8%B0%ED%83%80.mp4"
-              >
-                <img
-                  src="/img/기타-조건호.png"
-                  alt="기타-조건호"
-                  class="tasteCourseImage"
-                />
-              </div>
-              <div>기타</div>
-              <div>조건호 강사</div>
-            </div>
-            <div class="tasteCourseClick">
-              <div
-                class="tasteCourseClickImg"
-                data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%A1%B0%EC%88%98%EC%95%84-%EB%93%9C%EB%9F%BC.mp4"
-              >
-                <img
-                  src="/img/드럼-조수아.png"
-                  alt="드럼-조수아"
-                  class="tasteCourseImage"
-                />
-              </div>
-              <div>드럼</div>
-              <div>조수아 강사</div>
-            </div>
-          </div>
-          <div id="courseModal" class="modal1">
-            <div class="modal1-content">
-              <span id="modalCloseBtn">&times;</span>
-              <video id="modalVideo" width="800" height="500" controls>
-                <source src="" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-        <div class="wbox coursePriceGuideBox hidden">
-          <div class="pirceGuideBox">수강료 안내</div>
-          <div class="coursePriceGuide">
-            <div id="priceGuide1">Peniel Academy</div>
-            <div id="priceGuide2">수강료 안내</div>
-            <div class="horizontal-line"></div>
-            <div class="priceGuide3">전과목 취미반</div>
-            <div class="priceGuide4">16만원</div>
-            <div class="horizontal-line"></div>
-            <div class="priceGuide3">전과목 입시반</div>
-            <div class="priceGuide4">20만원</div>
-            <div id="priceGuide5">*월 4회 1시간 개인레슨 기준</div>
-          </div>
+
+        <div>
+          <span class="rightMenu menuReviewBtn"><a href="review.html">수강후기</a></span>
+          <span class="rightMenu">
+            <a href="mypage.html"><img src="/img/마이페이지.png" alt="" class="mypageIcon" /></a>
+          </span>
+          <span class="rightMenu">
+            <a href="cart.html"><img src="/img/장바구니.png" alt="" class="cartIcon" /></a>
+          </span>
+          <span class="rightMenu menuLogoutBtn">로그아웃</span>
+          <span class="rightMenu menuLoginBtn"><a href="login.html">로그인</a></span>
         </div>
       </div>
-      <div class="footer">
-        <h3>FOOTER</h3>
+      <div></div>
+      <div class="wbox title">
+        <div>COURSE</div>
+      </div>
+      <div class="wbox subMenu">
+        <div class="allCourseBtn active">전체강좌</div>
+        <div class="tasteCourseBtn">맛보기 강좌</div>
+        <div class="coursePriceGuideBtn">수강료 안내</div>
       </div>
     </div>
-    <script src="/js/course.js"></script>
-  </body>
+    <div class="box2">
+      <div class="wbox allCourseBox">
+        <div class="courseBox">전체강좌</div>
+        <div class="allCourse"></div>
+      </div>
+      <div class="wbox allCourseDetailBox hidden">
+        <div class="detailedBox2"></div>
+      </div>
+      <div class="wbox tasteCourseBox hidden">
+        <div class="tasteBox">맛보기 강좌</div>
+        <div class="tasteCourse">
+          <div class="tasteCourseClick">
+            <div class="tasteCourseClickImg"
+              data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%A1%B0%EB%B8%8C%EB%8B%88%EC%97%98-%EC%B2%BC%EB%A1%9C.mp4 ">
+              <img src="/img/첼로-조브니엘.png" alt="첼로-조브니엘" class="tasteCourseImage" />
+            </div>
+            <div>text</div>
+            <div>text</div>
+          </div>
+          <div class="tasteCourseClick">
+            <div class="tasteCourseClickImg"
+              data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%98%A4%EA%B2%B8%EB%B9%84-%ED%94%BC%EC%95%84%EB%85%B8.mp4">
+              <img src="/img/피아노-오겸비.png" alt="피아노-오겸비" class="tasteCourseImage" />
+            </div>
+            <div>text</div>
+            <div>text</div>
+          </div>
+          <div class="tasteCourseClick">
+            <div class="tasteCourseClickImg"
+              data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%A1%B0%EA%B1%B4%ED%98%B8-%EA%B8%B0%ED%83%80.mp4">
+              <img src="/img/기타-조건호.png" alt="기타-조건호" class="tasteCourseImage" />
+            </div>
+            <div>text</div>
+            <div>text</div>
+          </div>
+          <div class="tasteCourseClick">
+            <div class="tasteCourseClickImg"
+              data-video-url="https://storage.googleapis.com/teamproject1-majorflow/%20video/%EC%A1%B0%EC%88%98%EC%95%84-%EB%93%9C%EB%9F%BC.mp4">
+              <img src="/img/드럼-조수아.png" alt="드럼-조수아" class="tasteCourseImage" />
+            </div>
+            <div>text</div>
+            <div>text</div>
+          </div>
+        </div>
+        <div id="courseModal" class="modal1">
+          <div class="modal1-content">
+            <span id="modalCloseBtn">&times;</span>
+            <video id="modalVideo" width="800" height="500" controls>
+              <source src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="wbox coursePriceGuideBox hidden">
+        <div class="pirceGuideBox">수강료 안내</div>
+        <div class="coursePriceGuide">
+          <div id="priceGuide1">Peniel Academy</div>
+          <div id="priceGuide2">수강료 안내</div>
+          <div class="horizontal-line"></div>
+          <div class="priceGuide3">전과목 취미반</div>
+          <div class="priceGuide4">16만원</div>
+          <div class="horizontal-line"></div>
+          <div class="priceGuide3">전과목 입시반</div>
+          <div class="priceGuide4">20만원</div>
+          <div id="priceGuide5">*월 4회 1시간 개인레슨 기준</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <h3>FOOTER</h3>
+    </div>
+  </div>
+  <script src="/js/course.js"></script>
+</body>
+
 </html>

@@ -1,65 +1,69 @@
 <!DOCTYPE html>
 <html lang="kr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <title>로그인</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
-  </head>
 
-  <body>
-    <div class="loginBody">
-      <!-- <div class="menuContainer">
-        <label class="loginMenuBtn mainBox"> ME<br />NU </label>
-        <div class="loginMenu mainBox">
-          <div class="closeBtn"><img src="/img/x.png" width="24px" /></div>
-          <div class="menuContents">
-            <div><a href="about.html">학원소개</a></div>
-            <div>
-              <a href="course.html">수강안내</a>
-            </div>
-            <div>
-              <a href="enrollment.html">수강신청</a>
-            </div>
-            <div>
-              <a href="customer.html">고객센터</a>
-            </div>
-            <div><a href="review.html">수강후기</a></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <title>로그인</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="loginBody">
+    <div class="menuContainer">
+      <label class="loginMenuBtn mainBox"> ME<br />NU </label>
+      <div class="loginMenu mainBox">
+        <div class="closeBtn"><img src="/img/x.png" width="24px" /></div>
+        <div class="menuContents">
+          <div><a href="about.html">학원소개</a></div>
+          <div>
+            <a href="course.html">수강안내</a>
           </div>
-        </div> 
-      </div>-->
-      <div class="ring">
-        <i style="--clr: #fff"></i>
-        <i style="--clr: #fff"></i>
-        <i style="--clr: #fff"></i>
-        <div class="login">
-          <!-- 뒤로가기 버튼 -->
-          <div class="login-back-button" onclick="goBack()">←</div>
-          <h2>Login</h2>
-          <div class="inputBx">
-            <input type="text" id="userId" placeholder="UserId" />
+          <div>
+            <a href="enrollment.html">수강신청</a>
           </div>
-          <div class="inputBx">
-            <input type="password" id="password" placeholder="Password" />
+          <div>
+            <a href="customer.html">고객센터</a>
           </div>
-          <div class="sign-inBx">
-            <input type="submit" value="Sign in" />
-          </div>
-          <div class="links">
-            <a href="#" class="find-password" id="forgotPasswordLink"></a>
-            <a href="signup.html" class="signup-link">Signup</a>
+          <div><a href="review.html">수강후기</a>
           </div>
         </div>
       </div>
     </div>
+    <div class="ring">
+      <i style="--clr: #fff"></i>
+      <i style="--clr: #fff"></i>
+      <i style="--clr: #fff"></i>
+      <div class="login">
+        <!-- 뒤로가기 버튼 -->
+        <div class="login-back-button" onclick="goBack()">
+          ←
+        </div>
+        <h2>Login</h2>
+        <div class="inputBx">
+          <input type="text" id="userId" placeholder="UserId" />
+        </div>
+        <div class="inputBx">
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+        <div class="sign-inBx">
+          <input type="submit" value="Sign in" />
+        </div>
+        <div class="links">
+          <a href="#" class="find-password" id="forgotPasswordLink"></a>
+          <a href="signup.html" class="signup-link">Signup</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="/js/login.js"></script>
-  </body>
+  <script src="/js/login.js"></script>
+</body>
+
 </html>

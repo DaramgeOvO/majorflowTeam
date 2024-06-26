@@ -23,9 +23,24 @@ function sessionCurrent() {
     .get("http://localhost:8080/user/current", { withCredentials: true })
     .then((response) => {
       console.log("데이터:", response);
+      document.querySelector(".adminBtn").classList.add("hidden");
       if (response.status == 200 && response.data.userId !== "anonymousUser") {
         console.log("세션 유지");
         document.querySelector(".loginBtn").classList.add("hidden");
+        if (
+          response.status == 200 &&
+          (response.data.authority[0].authority == "ROLE_USER" ||
+            response.data.authority[0].authority == "ROLE_TEACHER")
+        ) {
+          console.log("권한이 User or Teacher일 때 데이터 : ", response);
+          document.querySelector(".adminBtn").classList.add("hidden");
+        } else if (
+          response.status == 200 &&
+          response.data.authority[0].authority == "ROLE_ADMIN"
+        ) {
+          console.log("권한이 Admin일 때 데이터 : ", response);
+          document.querySelector(".adminBtn").classList.remove("hidden");
+        }
       }
     })
     .catch((error) => {

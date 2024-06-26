@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class UserDto {
     private String userId;
-    private String userName;
+    private String name;
     private String password;
     private LocalDate birthDate;
     private String phoneNumber;

@@ -20,6 +20,4 @@ public class Reply {
     @ManyToOne
     @JoinColumn(name = "freeBoard_id")
     private FreeBoard freeBoard;
-
-
 }
