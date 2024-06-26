@@ -1,0 +1,5 @@
+"lecture_id","category","lecture_image","lecture_name","lecture_text","play_time","price","video_path","teacher_id"
+1,classic,,첼로,첼로강의,30,200000,,1
+2,classic,,피아노,피아노강의,30,200000,,2
+3,jazz,,기타,기타강의,30,200000,,3
+4,pop,,드럼,드럼강의,30,200000,,4

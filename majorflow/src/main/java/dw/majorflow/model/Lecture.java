@@ -21,6 +21,9 @@ public class Lecture {
     @Column(name = "lecture_name")
     private String lectureName;
 
+    @Column
+    private int price;
+
     @Column(name = "lecture_image")
     private String lectureImage;
 
@@ -36,4 +39,7 @@ public class Lecture {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+    @Column
+    private String lectureClass;
 }

@@ -46,7 +46,7 @@ public class UserService {
             authority.setAuthorityName("ROLE_USER");
             User user = new User(
                     userDto.getUserId(),
-                    userDto.getName(),
+                    userDto.getUserName(),
                     bCryptPasswordEncoder.encode(userDto.getPassword()),
                     userDto.getBirthDate(),
                     userDto.getPhoneNumber(),

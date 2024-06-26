@@ -13,4 +13,5 @@ import lombok.Setter;
 public class TeacherDto {
     private Long teacherId;
     private String teacherName;
+    private String teacherImgPath;
 }

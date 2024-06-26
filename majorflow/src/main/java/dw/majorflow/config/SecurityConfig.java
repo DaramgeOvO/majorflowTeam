@@ -49,7 +49,9 @@ public class SecurityConfig{
                                 new AntPathRequestMatcher("/review/**"),
                                 new AntPathRequestMatcher("/cart/**"),
                                 new AntPathRequestMatcher("/teacher/**"),
-                                new AntPathRequestMatcher("/admin/**")
+                                new AntPathRequestMatcher("/admin/**"),
+                                new AntPathRequestMatcher("/edutech/**")
+
                         ).permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form->form.loginPage("/login").defaultSuccessUrl("/articles"))

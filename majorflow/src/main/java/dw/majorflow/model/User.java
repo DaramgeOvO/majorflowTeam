@@ -25,7 +25,7 @@ public class User implements UserDetails {
     private String userId;
 
     @Column(name = "user_name", nullable = false)
-    private String name;
+    private String userName;
 
     @Column(name = "password", nullable = false)
     private String password;

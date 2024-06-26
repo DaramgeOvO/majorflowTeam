@@ -41,6 +41,7 @@ public class TeacherService {
         TeacherDto dto = new TeacherDto();
         dto.setTeacherId(teacher.getTeacherId());
         dto.setTeacherName(teacher.getTeacherName());
+        dto.setTeacherImgPath(teacher.getTeacherImgPath());
         return dto;
     }
 }

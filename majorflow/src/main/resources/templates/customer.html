@@ -1,113 +1,225 @@
 <!DOCTYPE html>
 <html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>고객센터-공지사항</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet" />
-  <title>고객센터-공지사항</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
-</head>
-
-<body>
-  <div class="container">
-    <div class="box1">
-      <div class="wbox mainMenu">
-        <div>
-          <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
-        </div>
-        <div>
-          <span class="centerMenu"><a href="about.html">학원소개</a></span>
-          <span class="centerMenu"><a href="course.html">수강안내</a></span>
-          <span class="centerMenu"><a href="enrollment.html">수강신청</a></span>
-          <span class="centerMenu"><a href="customer.html">고객센터</a></span>
-        </div>
-
-        <div>
-          <span class="rightMenu menuReviewBtn"><a href="review.html">수강후기</a></span>
-          <span class="rightMenu">
-            <a href="mypage.html"><img src="/img/마이페이지.png" alt="" class="mypageIcon" /></a>
-          </span>
-          <span class="rightMenu">
-            <a href="cart.html"><img src="/img/장바구니.png" alt="" class="cartIcon" /></a>
-          </span>
-          <span class="rightMenu menuLogoutBtn">로그아웃</span>
-          <span class="rightMenu menuLoginBtn"><a href="login.html">로그인</a></span>
-        </div>
-      </div>
-      <div></div>
-      <div class="wbox title">
-        <div>CUSTOMER</div>
-      </div>
-      <div class="wbox subMenu">
-        <div class="noticeBtn active">공지사항</div>
-      </div>
-    </div>
-    <div class="box2">
-      <div class="wbox noticeBox">
-        <div class="noticeBox1">공지사항</div>
-        <div class="noticeBox2">
-          <div class="noticeBox3">
-            <div class="noticeBox3-1">공지 제목</div>
-            <div class="noticeBox3-1">작성일자</div>
+  <body>
+    <div class="container">
+      <div class="box1">
+        <div class="wbox mainMenu">
+          <div>
+            <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
           </div>
-          <div class="noticeBoxLine"></div>
-          <div class="noticeBox3-4">
-            <p class="noticeBox4">공지내용</p>
-            <div class="noticeBox5">
-              <img src="/img/말풍선.png" />
-              <div class="noticeBox5-1">댓글달기</div>
+          <div>
+            <span class="centerMenu"><a href="about.html">학원소개</a></span>
+            <span class="centerMenu"><a href="course.html">수강안내</a></span>
+            <span class="centerMenu"
+              ><a href="enrollment.html">수강신청</a></span
+            >
+            <span class="centerMenu"><a href="customer.html">고객센터</a></span>
+          </div>
+
+          <div>
+            <span class="rightMenu menuReviewBtn"
+              ><a href="review.html">수강후기</a></span
+            >
+            <span class="rightMenu">
+              <a href="mypage.html"
+                ><img src="/img/마이페이지.png" alt="" class="mypageIcon"
+              /></a>
+            </span>
+            <span class="rightMenu">
+              <a href="cart.html"
+                ><img src="/img/장바구니.png" alt="" class="cartIcon"
+              /></a>
+            </span>
+            <span class="rightMenu menuLogoutBtn">로그아웃</span>
+            <span class="rightMenu menuLoginBtn"
+              ><a href="login.html">로그인</a></span
+            >
+          </div>
+        </div>
+        <div></div>
+        <div class="wbox title">
+          <div>CUSTOMER</div>
+        </div>
+        <div class="wbox subMenu">
+          <div class="noticeBtn active">공지사항</div>
+          <div class="customerInquiryBtn">1:1 문의</div>
+        </div>
+      </div>
+      <div class="box2">
+        <div class="wbox noticeBox">
+          <div class="noticeBox1">공지사항</div>
+          <div class="noticeBox2">
+            <div class="noticeBox3">
+              <div class="noticeBox3-1">공지 제목</div>
+              <div class="noticeBox3-1">작성일자</div>
             </div>
-          </div>
-          <a class="noticeBox3-2">
-            <span class="noticeBox3-3 open">+</span>
-            <span class="noticeBox3-3 close">-</span>
-          </a>
-        </div>
-        <div class="noticeBox2">
-          <div class="noticeBox3">
-            <div class="noticeBox3-1">공지 제목</div>
-            <div class="noticeBox3-1">작성일자</div>
-          </div>
-          <div class="noticeBoxLine"></div>
-          <div class="noticeBox3-4">
-            <p class="noticeBox4">공지내용</p>
-            <div class="noticeBox5">
-              <img src="/img/말풍선.png" />
-              <div class="noticeBox5-1">댓글달기</div>
+            <div class="noticeBoxLine"></div>
+            <div class="noticeBox3-4">
+              <p class="noticeBox4">공지내용</p>
+              <div class="noticeBox5">
+                <img src="/img/말풍선.png" />
+                <div class="noticeBox5-1">댓글달기</div>
+              </div>
             </div>
+            <a class="noticeBox3-2">
+              <span class="noticeBox3-3 open">∨</span>
+              <span class="noticeBox3-3 close">∧</span>
+            </a>
           </div>
-          <a class="noticeBox3-2">
-            <span class="noticeBox3-3 open">+</span>
-            <span class="noticeBox3-3 close">-</span>
-          </a>
+          <div class="noticeBox2">
+            <div class="noticeBox3">
+              <div class="noticeBox3-1">공지 제목</div>
+              <div class="noticeBox3-1">작성일자</div>
+            </div>
+            <div class="noticeBoxLine"></div>
+            <div class="noticeBox3-4">
+              <p class="noticeBox4">공지내용</p>
+              <div class="noticeBox5">
+                <img src="/img/말풍선.png" />
+                <div class="noticeBox5-1">댓글달기</div>
+              </div>
+            </div>
+            <a class="noticeBox3-2">
+              <span class="noticeBox3-3 open">∨</span>
+              <span class="noticeBox3-3 close">∧</span>
+            </a>
+          </div>
+          <div class="noticeBox2">
+            <div class="noticeBox3">
+              <div class="noticeBox3-1">공지 제목</div>
+              <div class="noticeBox3-1">작성일자</div>
+            </div>
+            <div class="noticeBoxLine"></div>
+            <div class="noticeBox3-4">
+              <p class="noticeBox4">공지내용</p>
+              <div class="noticeBox5">
+                <img src="/img/말풍선.png" />
+                <div class="noticeBox5-1">댓글달기</div>
+              </div>
+            </div>
+            <a class="noticeBox3-2">
+              <span class="noticeBox3-3 open">∨</span>
+              <span class="noticeBox3-3 close">∧</span>
+            </a>
+          </div>
+          <div class="noticeBox2">
+            <div class="noticeBox3">
+              <div class="noticeBox3-1">공지 제목</div>
+              <div class="noticeBox3-1">작성일자</div>
+            </div>
+            <div class="noticeBoxLine"></div>
+            <div class="noticeBox3-4">
+              <p class="noticeBox4">공지내용</p>
+              <div class="noticeBox5">
+                <img src="/img/말풍선.png" />
+                <div class="noticeBox5-1">댓글달기</div>
+              </div>
+            </div>
+            <a class="noticeBox3-2">
+              <span class="noticeBox3-3 open">∨</span>
+              <span class="noticeBox3-3 close">∧</span>
+            </a>
+          </div>
+          <div class="noticeBox2">
+            <div class="noticeBox3">
+              <div class="noticeBox3-1">공지 제목</div>
+              <div class="noticeBox3-1">작성일자</div>
+            </div>
+            <div class="noticeBoxLine"></div>
+            <div class="noticeBox3-4">
+              <p class="noticeBox4">공지내용</p>
+              <div class="noticeBox5">
+                <img src="/img/말풍선.png" />
+                <div class="noticeBox5-1">댓글달기</div>
+              </div>
+            </div>
+            <a class="noticeBox3-2">
+              <span class="noticeBox3-3 open">∨</span>
+              <span class="noticeBox3-3 close">∧</span>
+            </a>
+          </div>
+        </div>
+        <!-- 공지사항 등록 부분 제거 -->
+        <!-- 1:1문의 -->
+        <div class="wbox customerInquiryBox hidden">
+          <div class="customerInquiryBox1">고객문의</div>
+          <div class="customerInquiryBox2">Text</div>
+          <div class="customerInquiryBox3">
+            <table>
+              <thead>
+                <tr class="customerInquiryBox4">
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                  <th>진행상태</th>
+                </tr>
+              </thead>
+            </table>
+            <div id="customerInquiryBoxLine"></div>
+            <table>
+              <tbody>
+                <tr class="customerInquiryBox5">
+                  <td>1</td>
+                  <td>제목</td>
+                  <td>닉네임</td>
+                  <td>작성일</td>
+                  <td>답변대기</td>
+                </tr>
+                <tr class="customerInquiryBox5">
+                  <td>2</td>
+                  <td>제목</td>
+                  <td>닉네임</td>
+                  <td>작성일</td>
+                  <td>답변완료</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="customerInquiryBox6">문의등록</div>
+        </div>
+        <!-- 문의 등록 -->
+        <div class="wbox inquiryBox1-1 hidden">
+          <div class="inquiryBox1">1:1문의 등록</div>
+          <div class="inquiryBox2">닉네임 입력</div>
+          <div class="noticeWriteBox1">제목 입력</div>
+          <div class="noticeWriteBox2">내용 입력</div>
+          <div class="inquiryBox7">작성완료</div>
         </div>
       </div>
-      <!-- 공지사항 등록 부분 제거 -->
-      <!-- 1:1문의 등록 부분 제거-->
-
+      <div class="footer">
+        <h3>FOOTER</h3>
+      </div>
     </div>
-    <div class="footer">
-      <h3>FOOTER</h3>
+
+    <!-- 모달창 HTML 추가 -->
+    <div id="commentModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>댓글 달기</h2>
+        <textarea
+          id="commentInput"
+          class="commentInput"
+          placeholder="댓글을 입력하세요..."
+        ></textarea>
+        <button id="commentSubmit" class="commentSubmit">댓글 등록</button>
+      </div>
     </div>
-  </div>
 
-  <!-- 모달창 HTML 추가 -->
-  <div id="commentModal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>댓글 달기</h2>
-      <textarea id="commentInput" class="commentInput" placeholder="댓글을 입력하세요..."></textarea>
-      <button id="commentSubmit" class="commentSubmit">댓글 등록</button>
-    </div>
-  </div>
-
-  <script src="/js/customer.js"></script>
-</body>
-
+    <script src="/js/customer.js"></script>
+  </body>
 </html>

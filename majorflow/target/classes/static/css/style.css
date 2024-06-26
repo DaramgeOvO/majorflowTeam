@@ -358,8 +358,8 @@ body {
 
 .cartIcon,
 .mypageIcon {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .cartIcon > img,
@@ -380,7 +380,8 @@ body {
 }
 
 .historyImg {
-  height: 400px;
+  background-color: gray;
+  height: 600px;
   width: 500px;
   margin: 30px 30px 30px 0px;
 }
@@ -595,8 +596,8 @@ body {
   grid-template-columns: 1.8fr 1.2fr;
 }
 .detailedBox2Img {
-  width: 500px;
-  height: 550px;
+  width: 700px;
+  height: 650px;
   background-color: grey;
   margin-bottom: 30px;
 }
@@ -776,12 +777,17 @@ body {
   width: 90%; /* 가로 길이 조정 */
   height: 110px;
   border-radius: 25px;
+  border: 1px solid #ddd; /* 좀 더 연한 색상 */
   padding: 15px;
   position: relative;
   overflow: hidden;
   transition: height 0.3s ease, background-color 0.3s ease;
   margin-bottom: 30px;
-  background-color: #BBD0E9 /* 배경색 추가 */
+  background-color: #f9f9f9; /* 배경색 추가 */
+}
+
+.noticeBox2:hover {
+  background-color: #f1f1f1; /* 호버 시 배경색 변경 */
 }
 
 .noticeBox2.active {
@@ -811,14 +817,12 @@ body {
   position: absolute;
   top: 2.5rem;
   right: 1.5rem;
-  font-size: 30px;
-  font-weight: bold;
-   /* 텍스트 색상 변경 */
+  font-size: 20px; /* 텍스트 크기 축소 */
+  color: #666; /* 텍스트 색상 변경 */
 }
 .noticeBox3-2:focus {
   outline: 0;
 }
-
 .noticeBox3-3.close {
   display: none;
 }
@@ -833,11 +837,12 @@ body {
   height: 1px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 1px solid white; /* 연한 색상으로 변경 */
+  border: 1px solid #ddd; /* 연한 색상으로 변경 */
 }
 .noticeBox4 {
   font-size: 18px; /* 텍스트 크기 축소 */
   height: 150px;
+  color: #666; /* 텍스트 색상 변경 */
 }
 .noticeBox5 {
   display: flex;
@@ -953,8 +958,8 @@ body {
   flex-wrap: wrap;
 }
 .enrollment > div {
-  background-color: #BBD0E9;
-  border-radius: 25px;
+  border: 2px solid black;
+  border-radius: 5px;
   margin: 0px 0px 30px 0px;
   display: flex;
   flex-basis: 100%;
@@ -966,10 +971,10 @@ body {
 }
 
 .lectureEnrollimg {
-  background-color: white;
+  background-color: gray;
   height: 300px;
   width: 400px;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: 30px;
 }
 
@@ -994,18 +999,17 @@ body {
 .cartEnrollBtn {
   height: 50px;
   width: 150px;
-  background-color: black;
-  color: white;
-  border-radius: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
   text-align: center;
-  line-height: 50px;
+  line-height: 45px;
   float: right;
   margin: 5px 0px 5px 0px;
 }
 
 .cartEnrollBtn:hover {
-  background-color: #F8F8F8;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 .moveToCartBtnContainer {
@@ -1182,7 +1186,7 @@ body {
   padding: 20px 0;
 }
 
-/* 나의 진도율 페이지 설정 */
+/* new 수강신청 현황 */
 
 .myLectureBoxGrid {
   display: grid;
@@ -1340,6 +1344,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 }
 
 .progressStudyBtn:hover {
@@ -1347,6 +1352,7 @@ body {
   height: 130px;
   background-color: white;
   color: #007bff;
+  border: 2px solid #007bff;
   border-radius: 20px;
   font-size: 22px;
   text-align: center;
@@ -1372,7 +1378,7 @@ body {
   margin: 50px;
 }
 
-/* 성적확인 페이지 설정 */
+/* 강의실 */
 .gradeTitle {
   font-size: 40px;
   font-weight: bold;
@@ -1407,6 +1413,43 @@ body {
   justify-content: center;
   padding: 30px 0px;
   margin: 30px;
+}
+
+/* 모달 스타일 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* 수강후기 */
@@ -1556,10 +1599,10 @@ body {
 }
 .reviewBox7 {
   width: 100%;
-  height: 310px;
+  height: 360px;
   border-radius: 25px;
-  background-color: #BBD0E9;
-  padding: 15px;
+  background-color: #d9d9d9;
+  padding: 50px;
   margin-bottom: 40px;
 }
 .reviewBox7Grid {
@@ -1597,8 +1640,7 @@ body {
 .reviewBox8 {
   width: 100%;
   height: 133px;
-  background-color: white;
-  border-radius: 25px;
+  border: 1px solid black;
   margin: 20px 50px 0 0;
   padding: 20px;
 }
@@ -1613,12 +1655,10 @@ body {
   height: 30px;
 }
 .reviewBox9Grid-1 {
-  width: 80px;
+  width: 100px;
   height: 25px;
-  color: #3B3B3E;
   text-align: center;
   font-weight: bold;
-  font-size: 14px;
   margin: 0 15px 0 0;
 }
 .reviewBox9Grid-3 {
@@ -1641,7 +1681,7 @@ body {
   text-align: center;
   line-height: 66px;
   float: right;
-  margin: 30px 80px;
+  margin: 30px 0;
   border-radius: 25px;
 }
 .star_rating {
@@ -1695,7 +1735,7 @@ body {
   padding: 15px 0;
   font-size: 1.1em;
   text-align: center;
-  background-color: #BBD0E9;
+  background: bisque;
 }
 .reviewWriteModal {
   display: none; /* 초기에는 모달 창을 숨깁니다 */

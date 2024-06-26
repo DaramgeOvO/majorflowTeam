@@ -1,5 +1,4 @@
 const urlAdmin = "http://localhost:8080/user/user";
-const urlLectures = "http://localhost:8080/lectures";
 
 axios
   .get(urlAdmin)
@@ -23,7 +22,7 @@ function displayAdmin(data) {
 
     const adminUserName = document.createElement("td");
     adminUserName.classList.add("adminUserName");
-    adminUserName.textContent = userData.name;
+    adminUserName.textContent = userData.username;
 
     const adminUserNickname = document.createElement("td");
     adminUserNickname.classList.add("adminUserNickname");
@@ -53,6 +52,29 @@ function displayAdmin(data) {
     adminUserGenre.classList.add("adminUserGenre");
     adminUserGenre.textContent = userData.genre;
 
+    const adminUserAuthority = document.createElement("td");
+    adminUserAuthority.classList.add("adminUserAuthority");
+
+    // 권한 설정
+
+    const selectElement = document.createElement("select");
+    selectElement.name = `authority-${userData.userId}`;
+
+    const studentOption = document.createElement("option");
+    studentOption.value = "ROLE_USER";
+    studentOption.textContent = "학생";
+    studentOption.selected = userData.authority === "ROLE_USER";
+
+    const teacherOption = document.createElement("option");
+    teacherOption.value = "ROLE_TEACHER";
+    teacherOption.textContent = "선생님";
+    teacherOption.selected = userData.authority === "ROLE_TEACHER";
+
+    selectElement.appendChild(studentOption);
+    selectElement.appendChild(teacherOption);
+
+    adminUserAuthority.appendChild(selectElement);
+
     tr.appendChild(adminUserId);
     tr.appendChild(adminUserName);
     tr.appendChild(adminUserNickname);
@@ -62,43 +84,25 @@ function displayAdmin(data) {
     tr.appendChild(adminUserEmail);
     tr.appendChild(adminUserPhoneNum);
     tr.appendChild(adminUserGenre);
+    tr.appendChild(adminUserAuthority);
     tbody.appendChild(tr);
   });
 }
 
-// 강의별 수강중인 학생 목록 가져오기
-axios
-  .get(urlLectures)
-  .then((response) => {
-    console.log("강의 데이터: ", response.data);
-    displayCourseUsers(response.data);
-  })
-  .catch((error) => {
-    console.log("강의 데이터 가져오기 에러 발생: ", error);
-  });
+function updateAuthority(userId, newAuthority) {
+  const updateUrl = `http://localhost:8080/user/update-authority/${userId}`;
 
-function displayCourseUsers(lectureData) {
-  lectureData.forEach((lectureData) => {
-    const courseUserList = document.querySelector(
-      `.${lectureData.courseName.toLowerCase()}LectureUserName`
-    );
-
-    course.students.forEach((student) => {
-      const studentElement = document.createElement("div");
-      studentElement.classList.add("studentName");
-      studentElement.textContent = student.name;
-      courseUserList.appendChild(studentElement);
+  axios
+    .put(updateUrl, { authority: newAuthority })
+    .then((response) => {
+      console.log("권한 업데이트 성공:", response.data);
+      // 성공적으로 업데이트된 경우에 대한 처리 (예: 메시지 표시 등)
+    })
+    .catch((error) => {
+      console.error("권한 업데이트 실패:", error);
+      // 업데이트 실패에 대한 처리 (예: 오류 메시지 표시 등)
     });
-  });
 }
-document.querySelectorAll(".courseUserGrid").forEach((courseSection) => {
-  courseSection.addEventListener("click", () => {
-    courseSection.classList.toggle("active");
-    const lectureUserList = courseSection.nextElementSibling;
-    lectureUserList.style.display =
-      lectureUserList.style.display === "block" ? "none" : "block";
-  });
-});
 
 /* 유저가 수강중인 강의 보기 모달 */
 

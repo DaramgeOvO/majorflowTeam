@@ -1,166 +1,166 @@
 <!DOCTYPE html>
 <html lang="kr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet"
-  />
-  <title>수강후기</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>수강후기</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+  </head>
 
-<body>
-<div class="container">
-  <div class="box1">
-    <div class="wbox mainMenu">
-      <div>
-        <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
-      </div>
-      <div>
-        <span class="centerMenu"><a href="about.html">학원소개</a></span>
-        <span class="centerMenu"><a href="course.html">수강안내</a></span>
-        <span class="centerMenu"
-        ><a href="enrollment.html">수강신청</a></span
-        >
-        <span class="centerMenu"><a href="customer.html">고객센터</a></span>
-      </div>
-      <div>
-        <span class="rightMenu"><a href="review.html">수강후기</a></span>
-        <span class="rightMenu">
+  <body>
+    <div class="container">
+      <div class="box1">
+        <div class="wbox mainMenu">
+          <div>
+            <a href="index.html"><img src="/img/로고.png" class="logo" /></a>
+          </div>
+          <div>
+            <span class="centerMenu"><a href="about.html">학원소개</a></span>
+            <span class="centerMenu"><a href="course.html">수강안내</a></span>
+            <span class="centerMenu"
+              ><a href="enrollment.html">수강신청</a></span
+            >
+            <span class="centerMenu"><a href="customer.html">고객센터</a></span>
+          </div>
+          <div>
+            <span class="rightMenu"><a href="review.html">수강후기</a></span>
+            <span class="rightMenu">
               <a href="mypage.html">
                 <img src="/img/마이페이지.png" alt="" class="mypageIcon" />
               </a>
             </span>
-        <span class="rightMenu">
+            <span class="rightMenu">
               <a href="cart.html">
                 <img src="/img/장바구니.png" alt="" class="cartIcon" />
               </a>
             </span>
-        <span class="rightMenu menuLogoutBtn">로그아웃</span>
-        <span class="rightMenu menuLoginBtn">
+            <span class="rightMenu menuLogoutBtn">로그아웃</span>
+            <span class="rightMenu menuLoginBtn">
               <a href="login.html">로그인</a>
             </span>
-      </div>
-    </div>
-    <div class="wbox title">
-      <div>REVIEW</div>
-    </div>
-    <div class="wbox subMenu">
-      <div class="reviewBtn">수강후기</div>
-    </div>
-  </div>
-  <div class="box2">
-    <div class="reviewBox"></div>
-    <div class="wbox review">
-      <div class="reviewBox2">
-        <div class="reviewBox2-content">
-          <div class="reviewBox3">
-            <div class="reviewBox4">수강생 실제 후기</div>
-            <div class="reviewBox4">만족도</div>
-            <div class="reviewBox4">평점</div>
-          </div>
-          <div class="reviewBox3">
-            <div id="reviewBox3-1">리뷰 갯수</div>
-            <div id="reviewBox3-2">★ 5</div>
-            <div class="reviewBoxStar">
-              <div class="reviewBoxStarGrid">
-                <div class="reviewStar">★★★★★</div>
-                <div id="reviewBoxStar1-1"></div>
-              </div>
-              <div class="reviewBoxStarGrid">
-                <div class="reviewStar">★★★★☆</div>
-                <div class="reviewBoxStar2-1">
-                  <div id="reviewBoxStar2-1"></div>
-                </div>
-              </div>
-              <div class="reviewBoxStarGrid">
-                <div class="reviewStar">★★★☆☆</div>
-                <div class="reviewBoxStar2-1">
-                  <div id="reviewBoxStar2-2"></div>
-                </div>
-              </div>
-              <div class="reviewBoxStarGrid">
-                <div class="reviewStar">★★☆☆☆</div>
-                <div class="reviewBoxStar2-1">
-                  <div id="reviewBoxStar2-3"></div>
-                </div>
-              </div>
-              <div class="reviewBoxStarGrid">
-                <div class="reviewStar">★☆☆☆☆</div>
-                <div class="reviewBoxStar2-1">
-                  <div id="reviewBoxStar2-4"></div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      <!-- Review Box 6-1 -->
-      <div class="reviewBox6-1">후기</div>
-      <div class="reviewBox6">
-        <div class="reviewBox7">
-          <div class="reviewBox7Grid">
-            <div>
-              <div class="reviewBox7Grid-1">닉네임</div>
-            </div>
-            <div>
-              <div class="reviewBox7Grid-4">★★★★★</div>
-              <div id="reviewDynamicDate" class="reviewBox7Grid-3">
-                작성일
-              </div>
-            </div>
-          </div>
-          <div class="reviewBox8">리뷰내용</div>
-          <div class="reviewBox9Grid">
-            <div class="reviewBox9Grid-2">
-              <div class="reviewBox9Grid-1">
-                좋아요 <span class="likeCount">0</span>개
-              </div>
-            </div>
-            <div class="reviewBox9Grid-2">
-              <img
-                      src="/img/하트.png"
-                      width="25"
-                      height="25"
-                      class="likeBtn"
-              />
-              <div class="reviewBox9Grid-1">좋아요</div>
-            </div>
-          </div>
+        <div class="wbox title">
+          <div>REVIEW</div>
+        </div>
+        <div class="wbox subMenu">
+          <div class="reviewBtn">수강후기</div>
         </div>
       </div>
-      <div class="reviewWriteBtn">리뷰쓰기</div>
-    </div>
-  </div>
-</div>
-<div id="reviewModal" class="reviewWriteModal">
-  <div class="reviewWriteModal-content">
-    <span class="reviewModalCloseBtn">&times;</span>
-    <div class="reviewWriteBox">
-      <div class="star_rating">
-        <span class="reviewWriteStar on" data-value="1"></span>
-        <span class="reviewWriteStar" data-value="2"></span>
-        <span class="reviewWriteStar" data-value="3"></span>
-        <span class="reviewWriteStar" data-value="4"></span>
-        <span class="reviewWriteStar" data-value="5"></span>
+      <div class="box2">
+        <div class="reviewBox"></div>
+        <div class="wbox review">
+          <div class="reviewBox2">
+            <div class="reviewBox2-content">
+              <div class="reviewBox3">
+                <div class="reviewBox4">수강생 실제 후기</div>
+                <div class="reviewBox4">만족도</div>
+                <div class="reviewBox4">평점</div>
+              </div>
+              <div class="reviewBox3">
+                <div id="reviewBox3-1">리뷰 갯수</div>
+                <div id="reviewBox3-2">★ 5</div>
+                <div class="reviewBoxStar">
+                  <div class="reviewBoxStarGrid">
+                    <div class="reviewStar">★★★★★</div>
+                    <div id="reviewBoxStar1-1"></div>
+                  </div>
+                  <div class="reviewBoxStarGrid">
+                    <div class="reviewStar">★★★★☆</div>
+                    <div class="reviewBoxStar2-1">
+                      <div id="reviewBoxStar2-1"></div>
+                    </div>
+                  </div>
+                  <div class="reviewBoxStarGrid">
+                    <div class="reviewStar">★★★☆☆</div>
+                    <div class="reviewBoxStar2-1">
+                      <div id="reviewBoxStar2-2"></div>
+                    </div>
+                  </div>
+                  <div class="reviewBoxStarGrid">
+                    <div class="reviewStar">★★☆☆☆</div>
+                    <div class="reviewBoxStar2-1">
+                      <div id="reviewBoxStar2-3"></div>
+                    </div>
+                  </div>
+                  <div class="reviewBoxStarGrid">
+                    <div class="reviewStar">★☆☆☆☆</div>
+                    <div class="reviewBoxStar2-1">
+                      <div id="reviewBoxStar2-4"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Review Box 6-1 -->
+          <div class="reviewBox6-1">후기</div>
+          <div class="reviewBox6">
+            <div class="reviewBox7">
+              <div class="reviewBox7Grid">
+                <div>
+                  <div class="reviewBox7Grid-1">닉네임</div>
+                </div>
+                <div>
+                  <div class="reviewBox7Grid-4">★★★★★</div>
+                  <div id="reviewDynamicDate" class="reviewBox7Grid-3">
+                    작성일
+                  </div>
+                </div>
+              </div>
+              <div class="reviewBox8">리뷰내용</div>
+              <div class="reviewBox9Grid">
+                <div class="reviewBox9Grid-2">
+                  <div class="reviewBox9Grid-1">
+                    좋아요 <span class="likeCount">0</span>개
+                  </div>
+                </div>
+                <div class="reviewBox9Grid-2">
+                  <img
+                    src="/img/하트.png"
+                    width="25"
+                    height="25"
+                    class="likeBtn"
+                  />
+                  <div class="reviewBox9Grid-1">좋아요</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reviewWriteBtn">리뷰쓰기</div>
+        </div>
       </div>
-      <textarea
-              class="star_box"
-              placeholder="리뷰 내용을 작성해주세요."
-      ></textarea>
-      <input type="submit" class="reviewWriteBtn2" value="리뷰 등록" />
     </div>
-  </div>
-</div>
-<div class="footer">
-  <h3>FOOTER</h3>
-</div>
+    <div id="reviewModal" class="reviewWriteModal">
+      <div class="reviewWriteModal-content">
+        <span class="reviewModalCloseBtn">&times;</span>
+        <div class="reviewWriteBox">
+          <div class="star_rating">
+            <span class="reviewWriteStar on" data-value="1"></span>
+            <span class="reviewWriteStar" data-value="2"></span>
+            <span class="reviewWriteStar" data-value="3"></span>
+            <span class="reviewWriteStar" data-value="4"></span>
+            <span class="reviewWriteStar" data-value="5"></span>
+          </div>
+          <textarea
+            class="star_box"
+            placeholder="리뷰 내용을 작성해주세요."
+          ></textarea>
+          <input type="submit" class="reviewWriteBtn2" value="리뷰 등록" />
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <h3>FOOTER</h3>
+    </div>
 
-<script src="/js/review.js"></script>
-</body>
+    <script src="/js/review.js"></script>
+  </body>
 </html>
