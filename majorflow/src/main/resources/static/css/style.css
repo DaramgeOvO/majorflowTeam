@@ -653,6 +653,7 @@ body {
   width: 90%;
   height: 800px;
   margin: 0 auto;
+  margin-bottom: 30px;
   border-radius: 15px; /* 둥근 모서리 */
   background: linear-gradient(
     to bottom,
@@ -714,7 +715,7 @@ body {
 }
 #priceGuide5 {
   font-size: 25px;
-  margin: 40px 80px 10px 0px;
+  margin: 40px 80px;
   display: flex;
   justify-content: end;
   color: #777;
