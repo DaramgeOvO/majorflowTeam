@@ -2,7 +2,7 @@ const urlSignup = "http://localhost:8080/user/signup";
 const urlCheckId = "http://localhost:8080/user/check-id";
 
 let signupUserId = "";
-let signupUserName = "";
+let signupName = "";
 let signupPassword = "";
 let signupBirthDate = "";
 let signupPhoneNumber = "";
@@ -130,7 +130,7 @@ function register() {
     { id: "userId", message: "아이디는 필수입력 항목입니다." },
     { id: "password", message: "비밀번호는 필수입력 항목입니다." },
     { id: "confirmPassword", message: "비밀번호 확인은 필수입력 항목입니다." },
-    { id: "userName", message: "이름은 필수입력 항목입니다." },
+    { id: "name", message: "이름은 필수입력 항목입니다." },
     { id: "nickname", message: "닉네임은 필수입력 항목입니다." },
     { id: "email", message: "이메일은 필수입력 항목입니다." },
     { id: "phoneNumber", message: "핸드폰 번호는 필수입력 항목입니다." },
@@ -179,9 +179,9 @@ document.querySelector("#userId").addEventListener("change", (e) => {
   console.log(e.target.value);
   signupUserId = e.target.value;
 });
-document.querySelector("#userName").addEventListener("change", (e) => {
+document.querySelector("#name").addEventListener("change", (e) => {
   console.log(e.target.value);
-  signupUserName = e.target.value;
+  signupName = e.target.value;
 });
 document.querySelector("#password").addEventListener("change", (e) => {
   console.log(e.target.value);
@@ -265,7 +265,7 @@ function signupRegister() {
   if (confirm("회원가입 하시겠습니까?")) {
     const data = {
       userId: signupUserId,
-      userName: signupUserName,
+      userName: signupName,
       password: signupPassword,
       birthDate: signupBirthDate,
       phoneNumber: signupPhoneNumber,

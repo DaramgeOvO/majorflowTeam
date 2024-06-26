@@ -8,56 +8,60 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+        rel="stylesheet" />
   <title>장바구니</title>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <div class="box1Cart">
-      <div class="wbox mainMenu">
-        <div>
-          <a href="index.html">
-            <img src="/img/로고.png" class="logo" />
-          </a>
-        </div>
-        <div>
-          <span class="centerMenu"><a href="about.html">학원소개</a></span>
-          <span class="centerMenu"><a href="course.html">수강안내</a></span>
-          <span class="centerMenu"><a href="enrollment.html">수강신청</a></span>
-          <span class="centerMenu"><a href="customer.html">고객센터</a></span>
-        </div>
-        <div>
-          <span class="rightMenu"><a href="review.html">수강후기</a></span>
-          <span class="rightMenu">
+<div class="container">
+  <div class="box1Cart">
+    <div class="wbox mainMenu">
+      <div>
+        <a href="index.html">
+          <img src="/img/로고.png" class="logo" />
+        </a>
+      </div>
+      <div>
+        <span class="centerMenu"><a href="about.html">학원소개</a></span>
+        <span class="centerMenu"><a href="course.html">수강안내</a></span>
+        <span class="centerMenu"
+        ><a href="enrollment.html">수강신청</a></span
+        >
+        <span class="centerMenu"><a href="customer.html">고객센터</a></span>
+      </div>
+      <div class="rightMenuBx">
+	<span class="rightMenu menuReviewBtn"
+    ><a href="review.html">수강후기</a></span>
+        <span class="rightMenu mapageIcon">
             <a href="mypage.html">
               <img src="/img/마이페이지.png" alt="" class="mypageIcon" />
             </a>
           </span>
-          <span class="rightMenu">
+        <span class="rightMenu cartIcon">
             <a href="cart.html">
               <img src="/img/장바구니.png" alt="" class="cartIcon" />
             </a>
           </span>
-          <span class="rightMenu menuLogoutBtn">로그아웃</span>
-          <span class="rightMenu menuLoginBtn"><a href="login.html">로그인</a></span>
-        </div>
-      </div>
-      <div class="cartBox">
-        <div id="cartItemsContainer"></div>
-        <div id="totalPriceContainer" class="totalPrice">총 가격: 0원</div>
-        <div class="cartBox6Wrapper">
-          <div class="cartBox6"><a href="#">결제하기</a></div>
-        </div>
-
+        <span class="rightMenu menuLogoutBtn">로그아웃</span>
+        <span class="rightMenu menuLoginBtn"
+        ><a href="login.html">로그인</a></span>
       </div>
     </div>
-    <div class="footer">
-      <h3>FOOTER</h3>
+    <div class="cartBox">
+      <div id="cartItemsContainer"></div>
+      <div id="totalPriceContainer" class="totalPrice">총 가격: 0원</div>
+      <div class="cartBox6Wrapper">
+        <div class="cartBox6"><a href="#">결제하기</a></div>
+      </div>
+
     </div>
   </div>
-  <script src="/js/cart.js"></script>
+  <div class="footer">
+    <h3>FOOTER</h3>
+  </div>
+</div>
+<script src="/js/cart.js"></script>
 </body>
 
 </html>

@@ -133,3 +133,45 @@ modal.addEventListener("click", function (event) {
     modal.style.display = "none";
   }
 });
+
+/* 공지사항 등록 */
+
+// HTML 요소 선택
+const noticeTitle = document.querySelector(".noticeWriteBox1");
+const noticeContent = document.querySelector(".noticeWriteBox2");
+const submitButton = document.querySelector(".noticeWriteBox3");
+
+// 글쓰기 버튼에 이벤트 리스너 추가
+submitButton.addEventListener("click", () => {
+  // 입력된 제목과 내용 가져오기
+  const title = noticeTitle.value;
+  const content = noticeContent.value;
+
+  // 현재 날짜 및 시간 생성
+  const now = new Date();
+  const freeBoardTime = now.toISOString(); // ISO 형식의 날짜 문자열 생성 (예: "2024-06-26T15:30:00.000Z")
+
+  // 데이터 객체 생성
+  const data = {
+    title: title,
+    text: content, // 수정된 부분
+    freeBoardTime: freeBoardTime // 등록 날짜 추가
+  };
+
+  // axios를 사용하여 서버에 데이터 전송
+  axios.post("http://localhost:8080/board/save", data, {
+    withCredentials: true,
+  })
+  .then((response) => {
+    console.log("데이터 저장 성공:", response);
+    // 성공 시 추가 작업 (예: 알림 표시, 입력 필드 초기화 등)
+    alert(`공지사항이 등록되었습니다. (등록 시간: ${new Date(freeBoardTime).toLocaleString()})`);
+    noticeTitle.value = "";
+    noticeContent.value = "";
+  })
+  .catch((error) => {
+    console.log("에러 발생:", error);
+    // 오류 처리 (예: 오류 메시지 표시)
+    alert("공지사항 등록에 실패했습니다. 다시 시도해주세요.");
+  });
+});

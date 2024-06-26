@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="kr">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
           href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-          rel="stylesheet" />
+          rel="stylesheet"
+  />
   <title>고객센터-공지사항</title>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
 </head>
@@ -24,20 +24,30 @@
       <div>
         <span class="centerMenu"><a href="about.html">학원소개</a></span>
         <span class="centerMenu"><a href="course.html">수강안내</a></span>
-        <span class="centerMenu"><a href="enrollment.html">수강신청</a></span>
+        <span class="centerMenu"
+        ><a href="enrollment.html">수강신청</a></span
+        >
         <span class="centerMenu"><a href="customer.html">고객센터</a></span>
       </div>
 
-      <div>
-        <span class="rightMenu menuReviewBtn"><a href="review.html">수강후기</a></span>
-        <span class="rightMenu">
-            <a href="mypage.html"><img src="/img/마이페이지.png" alt="" class="mypageIcon" /></a>
-          </span>
-        <span class="rightMenu">
-            <a href="cart.html"><img src="/img/장바구니.png" alt="" class="cartIcon" /></a>
-          </span>
+      <div class="rightMenuBx">
+            <span class="rightMenu menuReviewBtn"
+            ><a href="review.html">수강후기</a></span
+            >
+        <span class="rightMenu mapageIcon">
+              <a href="mypage.html"
+              ><img src="/img/마이페이지.png" alt="" class="mypageIcon"
+              /></a>
+            </span>
+        <span class="rightMenu cartIcon">
+              <a href="cart.html"
+              ><img src="/img/장바구니.png" alt="" class="cartIcon"
+              /></a>
+            </span>
         <span class="rightMenu menuLogoutBtn">로그아웃</span>
-        <span class="rightMenu menuLoginBtn"><a href="login.html">로그인</a></span>
+        <span class="rightMenu menuLoginBtn"
+        ><a href="login.html">로그인</a></span
+        >
       </div>
     </div>
     <div></div>
@@ -90,7 +100,6 @@
     </div>
     <!-- 공지사항 등록 부분 제거 -->
     <!-- 1:1문의 등록 부분 제거-->
-
   </div>
   <div class="footer">
     <h3>FOOTER</h3>
@@ -102,12 +111,15 @@
   <div class="modal-content">
     <span class="close-btn">&times;</span>
     <h2>댓글 달기</h2>
-    <textarea id="commentInput" class="commentInput" placeholder="댓글을 입력하세요..."></textarea>
+    <textarea
+            id="commentInput"
+            class="commentInput"
+            placeholder="댓글을 입력하세요..."
+    ></textarea>
     <button id="commentSubmit" class="commentSubmit">댓글 등록</button>
   </div>
 </div>
 
 <script src="/js/customer.js"></script>
 </body>
-
 </html>
