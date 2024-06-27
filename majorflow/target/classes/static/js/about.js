@@ -92,8 +92,9 @@ function displayTeacher(data) {
   backBtnImg.src = "/img/뒤로가기검정.png";
   singleTeacherTitle.textContent = data.teacherName;
   singleTeacherImg.src = data.teacherImgPath;
-  singleTeacherInfo.textContent = "담당 강의명";
-  singleTeacherText2.textContent = "선생님 정보";
+   singleTeacherInfo.textContent = data.user.email;
+  singleTeacherText2.innerHTML =
+    "Lorem ipsum dolor sit amet. Sit ratione reiciendis est quidem liberoeos quas quia est obcaecati atque nam illum quia. Aut pariatur omnisut neque deleniti non voluptas accusamus est recusandae vitae eaofficia consectetur. Et dolores ipsam sed laborum consectetur utcupiditate voluptate rem quam magnam At Quis inventore ut veniamaccusantium qui voluptatum voluptas. Ea optio fugit non nesciuntalias nam animi sequi qui doloremque debitis sed voluptatemvoluptate. Ad exercitationem quis aut ipsum atque et odio corruptiqui necessitatibus consequatur id voluptates minus in modi doloremet explicabo mollitia. Et rerum iste aut odio inventore in maioresvelit et dicta inventore sed odio consequatur. Ea rerum beatae inincidunt voluptas et provident voluptas et commodi velit. Quo doloredicta id voluptatem reprehenderit et harum voluptatibus et iureneque ut maiores mollitia et saepe iure! Et sint saepe quo quae iureet quia pariatur et porro fugiat ut ipsum Quis est deseruntvoluptatem aut quos temporibus.";
 
   singleTeacherBox.appendChild(backBtn);
   backBtn.appendChild(backBtnImg);

@@ -42,45 +42,79 @@ document.addEventListener('DOMContentLoaded', function() {
 function fetchNoticeData() {
   axios.get(urlNotice)
     .then(function (response) {
-      console.log('공지사항 데이터:', response.data); // 콘솔 로그 추가
+      console.log('공지사항 데이터:', response.data);
       updateNoticeBox(response.data);
     })
     .catch(function (error) {
       console.error('데이터를 가져오는 중 오류 발생:', error);
-      document.getElementById('noticeContent').innerHTML = '데이터를 불러오는 데 실패했습니다.';
+      document.querySelector('.noticeContentWrapper').innerHTML = '데이터를 불러오는 데 실패했습니다.';
     });
 }
 
-
 function updateNoticeBox(data) {
-  const noticeContent = document.getElementById('noticeContent');
+  const noticeContentWrapper = document.querySelector('.noticeContentWrapper');
+  noticeContentWrapper.innerHTML = ''; // 기존 내용을 지우기 위해 초기화
   if (data && data.length > 0) {
-    noticeContent.innerHTML = data.map(notice => {
+    data.forEach(notice => {
       // 날짜 형식 변환
       const date = new Date(notice.freeBoardTime);
       const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())}`;
 
-      return `
-        <div class="noticeBox3">
-          <div class="noticeBox3-1">${notice.title}</div>
-          <div class="noticeBox3Date">${formattedDate}</div>
-        </div>
-        <div class="noticeBoxLine"></div>
-        <div class="noticeBox3-4">
-          <p class="noticeBox4">${notice.text}</p>
-          <div class="noticeBox5">
-            <img src="/img/말풍선.png" alt="댓글 아이콘" />
-            <div class="noticeBox5-1">댓글달기</div>
-          </div>
-        </div>
-        <a class="noticeBox3-2">
-          <span class="noticeBox3-3 open">+</span>
-          <span class="noticeBox3-3 close">-</span>
-        </a>
-      `;
-    }).join('');
+      // 공지사항 항목 생성
+      const noticeBox2 = document.createElement('div');
+      noticeBox2.classList.add('noticeBox2');
+      noticeBox2.id = 'noticeContent';
+
+      const noticeBox3 = document.createElement('div');
+      noticeBox3.classList.add('noticeBox3');
+
+      const noticeTitle = document.createElement('div');
+      noticeTitle.classList.add('noticeBox3-1');
+      noticeTitle.textContent = notice.title;
+
+      const noticeDate = document.createElement('div');
+      noticeDate.classList.add('noticeBox3Date');
+      noticeDate.textContent = formattedDate;
+
+      const noticeBoxLine = document.createElement('div');
+      noticeBoxLine.classList.add('noticeBoxLine');
+
+      const noticeContent = document.createElement('div');
+      noticeContent.classList.add('noticeBox3-4');
+
+      const noticeText = document.createElement('p');
+      noticeText.classList.add('noticeBox4');
+      noticeText.textContent = notice.text;
+
+      const noticeBox5 = document.createElement('div');
+      noticeBox5.classList.add('noticeBox5');
+
+      const commentIcon = document.createElement('img');
+      commentIcon.src = "/img/말풍선.png";
+
+      const commentBtn = document.createElement('div');
+      commentBtn.classList.add('noticeBox5-1');
+      commentBtn.textContent = '댓글달기';
+
+      const toggleBtn = document.createElement('a');
+      toggleBtn.classList.add('noticeBox3-2');
+      toggleBtn.innerHTML = '<span class="noticeBox3-3 open">+</span><span class="noticeBox3-3 close">-</span>';
+
+      noticeBox3.appendChild(noticeTitle);
+      noticeBox3.appendChild(noticeDate);
+      noticeBox2.appendChild(noticeBox3);
+      noticeBox2.appendChild(noticeBoxLine);
+      noticeContent.appendChild(noticeText);
+      noticeBox5.appendChild(commentIcon);
+      noticeBox5.appendChild(commentBtn);
+      noticeContent.appendChild(noticeBox5);
+      noticeBox2.appendChild(noticeContent);
+      noticeBox2.appendChild(toggleBtn);
+
+      noticeContentWrapper.appendChild(noticeBox2);
+    });
   } else {
-    noticeContent.innerHTML = '공지사항이 없습니다.';
+    noticeContentWrapper.innerHTML = '공지사항이 없습니다.';
   }
 
   // 공지사항 업데이트 후 이벤트 리스너 재설정
@@ -97,7 +131,7 @@ function sessionCurrent() {
   axios
     .get("http://localhost:8080/user/current", { withCredentials: true })
     .then((response) => {
-      console.log("세션 데이터: ", response.data); // 콘솔 로그 추가
+      console.log("세션 데이터: ", response.data);
       if (response.status == 200 && response.data.userId !== "anonymousUser") {
         console.log("세션 유지");
         document.querySelector(".menuLoginBtn").classList.add("hidden");
@@ -131,26 +165,30 @@ document.querySelector(".menuLogoutBtn").addEventListener("click", () => {
 
 // 모달 내 확인 버튼 클릭 시 로그아웃 처리
 document.getElementById("alertConfirm").addEventListener("click", () => {
-  closeModal(); // 모달 닫기
   axios
     .post(urlLogout, {}, { withCredentials: true })
     .then((response) => {
       console.log("데이터: ", response);
       if (response.status == 200) {
-        openModal("로그아웃 되었습니다"); // 모달 열기
-        closeModal();
-        // 여기에 로그아웃 성공 후의 추가 동작을 넣으세요
-        document.querySelector(".menuLoginBtn").classList.remove("hidden");
-        document.querySelector(".menuLogoutBtn").classList.add("hidden");
+        openModal("로그아웃 되었습니다");
+        setTimeout(() => {
+          closeModal();
+          // 로그아웃 성공 후의 추가 동작
+          document.querySelector(".menuLoginBtn").classList.remove("hidden");
+          document.querySelector(".menuLogoutBtn").classList.add("hidden");
+          window.location.href = "login.html"; // 로그인 페이지로 이동
+        }, 2000); // 2초 후 모달 닫기
       }
     })
     .catch((error) => {
       console.log("에러 발생: ", error);
+      alert("로그아웃에 실패했습니다. 다시 시도해주세요.");
     });
 });
+
 // 모달 내 취소 버튼 클릭 시 모달 닫기
 document.querySelector(".alertClose").addEventListener("click", () => {
-  closeModal(); // 모달 닫기
+  closeModal();
 });
 
 function setCommentModalEventListeners() {

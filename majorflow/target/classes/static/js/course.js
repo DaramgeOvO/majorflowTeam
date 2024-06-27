@@ -32,7 +32,8 @@ function displayLectures(lectureData) {
 
       const allCourseClickImg = document.createElement("div");
       allCourseClickImg.classList.add("allCourseClickImg");
-      allCourseClickImg.style.backgroundImage = `url('/img/전체강좌_기타.jpg')`; // 이미지 설정
+      const imageUrl = data.lectureImage;
+      allCourseClickImg.style.backgroundImage = `url(${imageUrl})`;
 
       const textContainer = document.createElement("div");
       textContainer.classList.add("textContainer");
