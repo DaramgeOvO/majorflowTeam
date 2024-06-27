@@ -43,6 +43,7 @@ function fetchNoticeData() {
   axios.get(urlNotice)
     .then(function (response) {
       console.log('공지사항 데이터:', response.data);
+      response.data.sort((a,b) => new Date(b.freeBoardTime) - new Date(a.freeBoardTime));
       updateNoticeBox(response.data);
     })
     .catch(function (error) {
