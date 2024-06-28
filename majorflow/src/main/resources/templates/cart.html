@@ -8,68 +8,74 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+    rel="stylesheet" />
   <title>장바구니</title>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
 </head>
 
 <body>
-<div class="container">
-  <div class="box1Cart">
-    <div class="wbox mainMenu">
-      <div>
-        <a href="index.html">
-          <img src="/img/로고.png" class="logo" />
-        </a>
-      </div>
-      <div>
-        <span class="centerMenu"><a href="about.html">학원소개</a></span>
-        <span class="centerMenu"><a href="course.html">수강안내</a></span>
-        <span class="centerMenu"
-        ><a href="enrollment.html">수강신청</a></span
-        >
-        <span class="centerMenu"><a href="customer.html">고객센터</a></span>
-      </div>
-      <div class="rightMenuBx">
-	<span class="rightMenu menuReviewBtn"
-    ><a href="review.html">수강후기</a></span>
-        <span class="rightMenu mapageIcon">
-            <a href="mypage.html">
-              <img src="/img/마이페이지.png" alt="" class="mypageIcon" />
-            </a>
+  <div class="container">
+    <div class="box1Cart">
+      <div class="wbox mainMenu">
+        <div>
+          <a href="index.html">
+            <img src="/img/로고3.png" class="logo" />
+          </a>
+        </div>
+        <div>
+          <span class="centerMenu"><a href="about.html">학원소개</a></span>
+          <span class="centerMenu"><a href="course.html">수강안내</a></span>
+          <span class="centerMenu"><a href="enrollment.html">수강신청</a></span>
+          <span class="centerMenu"><a href="customer.html">고객센터</a></span>
+        </div>
+        <div class="rightMenuBx">
+          <span class="rightMenu menuReviewBtn"><a href="review.html">수강후기</a></span>
+          <span class="rightMenu mapageIcon">
+            <a href="mypage.html"><img src="/img/마이페이지.png" alt="" class="mypageIcon" /></a>
           </span>
-        <span class="rightMenu cartIcon">
-            <a href="cart.html">
-              <img src="/img/장바구니.png" alt="" class="cartIcon" />
-            </a>
+          <span class="rightMenu cartIcon">
+            <a href="cart.html"><img src="/img/장바구니.png" alt="" class="cartIcon" /></a>
           </span>
-        <span class="rightMenu menuLogoutBtn">로그아웃</span>
-        <span class="rightMenu menuLoginBtn"
-        ><a href="login.html">로그인</a></span>
+          <span class="rightMenu menuLogoutBtn">로그아웃</span>
+          <span class="rightMenu menuLoginBtn"><a href="login.html">로그인</a></span>
+        </div>
+      </div>
+      <div class="cartBox">
+        <div class="cartItemsContainer"></div>
+        <div id="totalPriceContainer" class="totalPrice">총 가격: 0원</div>
+        <div class="cartBox6Wrapper">
+          <div class="cartBox6"><a href="#">결제하기</a></div>
+        </div>
+      </div>
+      <div id="myAlertModal" class="alertModal">
+        <div class="alertModal-content">
+          <p id="alertModalMessage"></p>
+          <div class="alertModalBtn">
+            <button id="alertConfirm">확인</button>
+            <button class="alertClose">취소</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="cartBox">
-      <div class="cartItemsContainer"></div>
-      <div id="totalPriceContainer" class="totalPrice">총 가격: 0원</div>
-      <div class="cartBox6Wrapper">
-        <div class="cartBox6"><a href="#">결제하기</a></div>
-      </div>
-    </div>
-    <div id="myAlertModal" class="alertModal">
-      <div class="alertModal-content">
-        <p id="alertModalMessage"></p>
-        <div class="alertModalBtn">
-          <button id="alertConfirm">확인</button>
-          <button class="alertClose">취소</button>
+    <div class="footer">
+      <div class="footer-content">
+        <div class="footer-circles">
+          <a href="https://github.com/afoisl/Spring/tree/main/majorflow" target="_blank">
+            <div class="footer-circle git"></div>
+          </a>
+          <a href="https://www.figma.com/design/9zUur1Qqs19KoHCF75tKWP/1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=0-1"
+            target="_blank">
+            <div class="footer-circle figma"></div>
+          </a>
+        </div>
+        <div class="footer-info">
+          <p>주소: 대전 중구 중앙로121번길 20 방산빌딩</p>
+          <p>연락처: 0507-1422-2402</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer">
-    <h3>FOOTER</h3>
-  </div>
-</div>
-<script src="/js/cart.js"></script>
+  <script src="/js/cart.js"></script>
 </body>
 
 </html>

@@ -39,9 +39,17 @@ function displayLectures(lectureData) {
       textContainer.classList.add("textContainer");
 
       const mainText = document.createElement("p");
+      const lecClass = document.createElement("p");
       mainText.classList.add("mainText");
+      lecClass.classList.add("lecClass");
       mainText.textContent = data.lectureName;
-      textContainer.appendChild(mainText);
+      lecClass.textContent = data.lectureClass;
+
+      const mainTextBx = document.createElement("div");
+      mainTextBx.classList.add("mainTextBx");
+      mainTextBx.appendChild(mainText);
+      mainTextBx.appendChild(lecClass);
+      textContainer.appendChild(mainTextBx);
 
       const subText = document.createElement("p");
       subText.classList.add("subText");

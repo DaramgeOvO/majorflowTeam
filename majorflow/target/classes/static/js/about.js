@@ -7,8 +7,8 @@ const urlTeacher = "";
 document.querySelector(".teacherBtn").addEventListener("click", () => {
   document.querySelector(".teacherBox").classList.remove("hidden");
   document.querySelector(".historyBox").classList.add("hidden");
-  document.querySelector(".box3").classList.add("hidden");
   document.querySelector(".singleTeacherBox").classList.add("hidden");
+  document.querySelector(".box3").classList.add("hidden");
   axios
     .get("http://localhost:8080/teacher/all")
     .then((response) => {
@@ -92,7 +92,7 @@ function displayTeacher(data) {
   backBtnImg.src = "/img/뒤로가기검정.png";
   singleTeacherTitle.textContent = data.teacherName;
   singleTeacherImg.src = data.teacherImgPath;
-   singleTeacherInfo.textContent = data.user.email;
+  singleTeacherInfo.textContent = data.user.email;
   singleTeacherText2.innerHTML =
     "Lorem ipsum dolor sit amet. Sit ratione reiciendis est quidem liberoeos quas quia est obcaecati atque nam illum quia. Aut pariatur omnisut neque deleniti non voluptas accusamus est recusandae vitae eaofficia consectetur. Et dolores ipsam sed laborum consectetur utcupiditate voluptate rem quam magnam At Quis inventore ut veniamaccusantium qui voluptatum voluptas. Ea optio fugit non nesciuntalias nam animi sequi qui doloremque debitis sed voluptatemvoluptate. Ad exercitationem quis aut ipsum atque et odio corruptiqui necessitatibus consequatur id voluptates minus in modi doloremet explicabo mollitia. Et rerum iste aut odio inventore in maioresvelit et dicta inventore sed odio consequatur. Ea rerum beatae inincidunt voluptas et provident voluptas et commodi velit. Quo doloredicta id voluptatem reprehenderit et harum voluptatibus et iureneque ut maiores mollitia et saepe iure! Et sint saepe quo quae iureet quia pariatur et porro fugiat ut ipsum Quis est deseruntvoluptatem aut quos temporibus.";
 
@@ -120,6 +120,7 @@ document.querySelector(".historyBtn").addEventListener("click", () => {
   document.querySelector(".teacherBox").classList.add("hidden");
   document.querySelector(".historyBox").classList.remove("hidden");
   document.querySelector(".singleTeacherBox").classList.add("hidden");
+  document.querySelector(".box3").classList.remove("hidden");
 });
 
 document.querySelectorAll(".subMenu > div").forEach((div) => {
@@ -167,6 +168,7 @@ function closeModal() {
 
 // 로그아웃 버튼 클릭 시 확인 모달 열기
 document.querySelector(".menuLogoutBtn").addEventListener("click", () => {
+  // 로그아웃 버튼 클릭 시 확인 모달 열기
   openModal("로그아웃하시겠습니까?");
 });
 
@@ -178,9 +180,8 @@ document.getElementById("alertConfirm").addEventListener("click", () => {
     .then((response) => {
       console.log("데이터: ", response);
       if (response.status == 200) {
-        openModal("로그아웃 되었습니다"); // 모달 열기
+        openModal("로그아웃 되었습니다");
         closeModal();
-        // 여기에 로그아웃 성공 후의 추가 동작을 넣으세요
         document.querySelector(".menuLoginBtn").classList.remove("hidden");
         document.querySelector(".menuLogoutBtn").classList.add("hidden");
       }
@@ -189,10 +190,8 @@ document.getElementById("alertConfirm").addEventListener("click", () => {
       console.log("에러 발생: ", error);
     });
 });
-// 모달 내 취소 버튼 클릭 시 모달 닫기
 document.querySelector(".alertClose").addEventListener("click", () => {
-  closeModal(); // 모달 닫기
+  closeModal();
 });
-
 
 sessionCurrent();

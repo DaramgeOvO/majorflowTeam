@@ -23,9 +23,9 @@ document.querySelector(".progressBtn").addEventListener("click", () => {
 
         StudyMylectures(userInfo);
       } else {
-       openModal("로그인이 필요합니다.", () => {
-       window.location.href = "login.html";
-       });
+        openModal("로그인이 필요합니다.", () => {
+          window.location.href = "login.html";
+        });
       }
     })
     .catch((error) => {
@@ -67,10 +67,10 @@ function sessionCurrent() {
 
         displayMylectures(userInfo);
       } else {
-       openModal("로그인이 필요합니다.", () => {
-       window.location.href = "login.html";
-          });
-        }
+        openModal("로그인이 필요합니다.", () => {
+          window.location.href = "login.html";
+        });
+      }
     })
     .catch((error) => {
       console.log("에러 발생: ", error);
@@ -198,12 +198,6 @@ function StudyMylectures(user) {
         progressStudyBtn.textContent = "학습하기";
 
         progressStudyBtn.addEventListener("click", () => {
-          if (progressNum < 100) {
-            // 진도율이 100%를 넘지 않도록 함
-            progressNum += 1;
-            progressGraph.textContent = "진도율 " + progressNum + "%";
-          }
-
           // 모달 열기 및 비디오 재생
           modal.style.display = "block";
           modalVideo.poster = item.lecture.thumbnailImg; // 썸네일 이미지 설정
@@ -212,6 +206,15 @@ function StudyMylectures(user) {
           setTimeout(() => {
             modalVideo.play();
           }, 2000); // 2초 후에 비디오 재생
+
+          modalVideo.addEventListener("timeupdate", () => {
+            const currentTime = modalVideo.currentTime;
+            const duration = modalVideo.duration;
+            if (duration > 0) {
+              progressNum = Math.min(100, Math.round((currentTime / duration) * 100));
+              progressGraph.textContent = `진도율 ${progressNum}%`;
+              }
+          });
         });
 
         progressInfoBox.appendChild(progressImgBox);
@@ -252,10 +255,10 @@ function openModal(message, callback) {
   alertModal.style.display = "block";
 
   const confirmButton = document.getElementById("alertConfirm");
-      confirmButton.onclick = function () {
-        callback && callback(); // 콜백이 있을 경우 실행
-        closeModal(); // 모달 닫기
-      };
+  confirmButton.onclick = function () {
+    callback && callback(); // 콜백이 있을 경우 실행
+    closeModal(); // 모달 닫기
+  };
 }
 
 function closeModal() {

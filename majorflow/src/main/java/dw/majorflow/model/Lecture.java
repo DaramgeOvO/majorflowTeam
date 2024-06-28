@@ -30,10 +30,20 @@ public class Lecture {
     @Column
     private String category;
 
-    @Column(name = "lecture_text", length = 65535)
-    private String lectureText;
+    @Column(name = "lecture_course")
+    private String lectureCourse;
+
+    @Column
+    private int price;
+
+    @Column
+    private String thumbnailImg;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+    @Column
+    private String lectureClass;
 }
+

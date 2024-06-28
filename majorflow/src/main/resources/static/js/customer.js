@@ -1,5 +1,8 @@
 const urlLogout = "http://localhost:8080/user/logout";
 const urlNotice = "http://localhost:8080/board/getAll";
+let currentUser = {};
+let boardId = -1;
+let boardContents = [];
 
 // 공지사항 박스 클릭 이벤트 설정
 function setNoticeBoxEventListeners() {
@@ -28,84 +31,100 @@ function removeActiveClasses() {
 // 서브 메뉴 클릭 이벤트 설정
 document.querySelectorAll(".subMenu > div").forEach((div) => {
   div.addEventListener("click", () => {
-    document.querySelectorAll(".subMenu > div").forEach((item) => item.classList.remove("active"));
+    document
+      .querySelectorAll(".subMenu > div")
+      .forEach((item) => item.classList.remove("active"));
     div.classList.add("active");
   });
 });
 
 // 페이지 로드 시 공지사항 데이터 가져오기
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   fetchNoticeData();
   sessionCurrent();
 });
 
 function fetchNoticeData() {
-  axios.get(urlNotice)
+  axios
+    .get(urlNotice)
     .then(function (response) {
-      console.log('공지사항 데이터:', response.data);
-      response.data.sort((a,b) => new Date(b.freeBoardTime) - new Date(a.freeBoardTime));
+      console.log("공지사항 데이터:", response.data);
+      response.data.sort(
+        (a, b) => new Date(b.freeBoardTime) - new Date(a.freeBoardTime)
+      );
+      boardContents = response.data;
       updateNoticeBox(response.data);
     })
     .catch(function (error) {
-      console.error('데이터를 가져오는 중 오류 발생:', error);
-      document.querySelector('.noticeContentWrapper').innerHTML = '데이터를 불러오는 데 실패했습니다.';
+      console.error("데이터를 가져오는 중 오류 발생:", error);
+      document.querySelector(".noticeContentWrapper").innerHTML =
+        "데이터를 불러오는 데 실패했습니다.";
     });
 }
 
 function updateNoticeBox(data) {
-  const noticeContentWrapper = document.querySelector('.noticeContentWrapper');
-  noticeContentWrapper.innerHTML = ''; // 기존 내용을 지우기 위해 초기화
+  const noticeContentWrapper = document.querySelector(".noticeContentWrapper");
+  noticeContentWrapper.innerHTML = ""; // 기존 내용을 지우기 위해 초기화
   if (data && data.length > 0) {
-    data.forEach(notice => {
+    data.forEach((notice) => {
       // 날짜 형식 변환
       const date = new Date(notice.freeBoardTime);
-      const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())}`;
+      const formattedDate = `${date.getFullYear()}-${padZero(
+        date.getMonth() + 1
+      )}-${padZero(date.getDate())}`;
+
+      const noticeId = notice.freeBoardId;
 
       // 공지사항 항목 생성
-      const noticeBox2 = document.createElement('div');
-      noticeBox2.classList.add('noticeBox2');
-      noticeBox2.id = 'noticeContent';
+      const noticeBox2 = document.createElement("div");
+      noticeBox2.classList.add("noticeBox2");
+      noticeBox2.id = "noticeContent";
 
-      const noticeBox3 = document.createElement('div');
-      noticeBox3.classList.add('noticeBox3');
+      const noticeBox3 = document.createElement("div");
+      noticeBox3.classList.add("noticeBox3");
 
-      const noticeTitle = document.createElement('div');
-      noticeTitle.classList.add('noticeBox3-1');
+      const noticeTitle = document.createElement("div");
+      noticeTitle.classList.add("noticeBox3-1");
       noticeTitle.textContent = notice.title;
 
-      const noticeDate = document.createElement('div');
-      noticeDate.classList.add('noticeBox3Date');
+      const noticeDate = document.createElement("div");
+      noticeDate.classList.add("noticeBox3Date");
       noticeDate.textContent = formattedDate;
 
-      const noticeBoxLine = document.createElement('div');
-      noticeBoxLine.classList.add('noticeBoxLine');
+      const noticeBoxLine = document.createElement("div");
+      noticeBoxLine.classList.add("noticeBoxLine");
 
-      const noticeContent = document.createElement('div');
-      noticeContent.classList.add('noticeBox3-4');
+      const noticeContent = document.createElement("div");
+      noticeContent.classList.add("noticeBox3-4");
 
-      const noticeText = document.createElement('p');
-      noticeText.classList.add('noticeBox4');
+      const noticeText = document.createElement("p");
+      noticeText.classList.add("noticeBox4");
       noticeText.textContent = notice.text;
 
-      const noticeBox5 = document.createElement('div');
-      noticeBox5.classList.add('noticeBox5');
+      const noticeReply = document.createElement("div");
+      noticeReply.classList.add("noticeReply");
 
-      const commentIcon = document.createElement('img');
+      const noticeBox5 = document.createElement("div");
+      noticeBox5.classList.add("noticeBox5");
+
+      const commentIcon = document.createElement("img");
       commentIcon.src = "/img/말풍선.png";
 
-      const commentBtn = document.createElement('div');
-      commentBtn.classList.add('noticeBox5-1');
-      commentBtn.textContent = '댓글달기';
+      const commentBtn = document.createElement("div");
+      commentBtn.classList.add("noticeBox5-1");
+      commentBtn.textContent = "댓글달기";
 
-      const toggleBtn = document.createElement('a');
-      toggleBtn.classList.add('noticeBox3-2');
-      toggleBtn.innerHTML = '<span class="noticeBox3-3 open">+</span><span class="noticeBox3-3 close">-</span>';
+      const toggleBtn = document.createElement("a");
+      toggleBtn.classList.add("noticeBox3-2");
+      toggleBtn.innerHTML =
+        '<span class="noticeBox3-3 open">+</span><span class="noticeBox3-3 close">-</span>';
 
       noticeBox3.appendChild(noticeTitle);
       noticeBox3.appendChild(noticeDate);
       noticeBox2.appendChild(noticeBox3);
       noticeBox2.appendChild(noticeBoxLine);
       noticeContent.appendChild(noticeText);
+      noticeContent.appendChild(noticeReply);
       noticeBox5.appendChild(commentIcon);
       noticeBox5.appendChild(commentBtn);
       noticeContent.appendChild(noticeBox5);
@@ -113,9 +132,41 @@ function updateNoticeBox(data) {
       noticeBox2.appendChild(toggleBtn);
 
       noticeContentWrapper.appendChild(noticeBox2);
+
+      getReply(noticeId);
+
+      function getReply(id) {
+        axios
+          .get("http://localhost:8080/reply/get", { withCredentials: true })
+          .then((response) => {
+            console.log("댓글 데이터 : ", response.data);
+            const replyData = response.data;
+            replyData.forEach((r) => {
+              if (id == r.freeBoard.freeBoardId) {
+                console.log(r);
+
+                const replyBox1 = document.createElement("div");
+                replyBox1.classList.add("replyBox1");
+                replyBox1.textContent = r.user.userId;
+
+                const replyBox2 = document.createElement("div");
+                replyBox2.classList.add("replyBox2");
+                replyBox2.textContent = r.replyText;
+
+                const replyBox3 = document.createElement("div");
+                replyBox3.classList.add("replyBox3");
+                replyBox3.textContent = r.replyTime;
+
+                noticeReply.appendChild(replyBox1);
+                noticeReply.appendChild(replyBox2);
+                noticeReply.appendChild(replyBox3);
+              }
+            });
+          });
+      }
     });
   } else {
-    noticeContentWrapper.innerHTML = '공지사항이 없습니다.';
+    noticeContentWrapper.innerHTML = "공지사항이 없습니다.";
   }
 
   // 공지사항 업데이트 후 이벤트 리스너 재설정
@@ -134,12 +185,12 @@ function sessionCurrent() {
     .then((response) => {
       console.log("세션 데이터: ", response.data);
       if (response.status == 200 && response.data.userId !== "anonymousUser") {
-        console.log("세션 유지");
-        document.querySelector(".menuLoginBtn").classList.add("hidden");
-        document.querySelector(".menuLogoutBtn").classList.remove("hidden");
-      } else {
-        document.querySelector(".menuLogoutBtn").classList.add("hidden");
-        document.querySelector(".menuLoginBtn").classList.remove("hidden");
+        currentUser = {
+          userId: response.data.userId,
+          authority: {
+            authorityName: response.data.authority[0].authority,
+          },
+        };
       }
     })
     .catch((error) => {
@@ -186,7 +237,6 @@ document.getElementById("alertConfirm").addEventListener("click", () => {
       alert("로그아웃에 실패했습니다. 다시 시도해주세요.");
     });
 });
-
 // 모달 내 취소 버튼 클릭 시 모달 닫기
 document.querySelector(".alertClose").addEventListener("click", () => {
   closeModal();
@@ -197,8 +247,9 @@ function setCommentModalEventListeners() {
   const modal = document.getElementById("commentModal");
   const closeBtn = document.querySelector(".close-btn");
 
-  commentBtns.forEach((btn) => {
+  commentBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
+      boardId = index;
       document.getElementById("commentInput").value = ""; // 댓글 입력창 초기화
       modal.classList.remove("hidden");
       modal.style.display = "block";
@@ -230,5 +281,42 @@ function setCommentModalEventListeners() {
   });
 }
 
+commentSubmit.addEventListener("click", () => {
+  // const replyUserId = document.querySelector(".replyUserId");
+  const replyContent = document.querySelector(".commentInput");
+  const replyUser = "";
+  const content = replyContent.value;
+
+  const now = new Date();
+  const replyTime = now.toISOString();
+
+  const data = {
+    user: currentUser,
+    replyText: content,
+    replyTime: replyTime,
+    freeBoard: {
+      freeBoardId: boardContents[boardId].freeBoardId,
+    },
+  };
+  console.log("태스트: ", boardId, boardContents);
+
+  axios
+    .post("http://localhost:8080/reply/save", data, {
+      withCredentials: true,
+    })
+    .then((response) => {
+      console.log("데이터 저장 성공 : ", response);
+      // openModal(`댓글이 등록되었습니다.`, () => {
+      //   window.location.reload();
+      // });
+      replyContent.value = "";
+    })
+    .catch((error) => {
+      console.log("에러 발생 : ", error);
+      openModal("댓글 등록에 실패했습니다.");
+    });
+});
+
 // 초기 모달 이벤트 리스너 설정
 setCommentModalEventListeners();
+sessionCurrent();

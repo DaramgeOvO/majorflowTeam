@@ -36,19 +36,21 @@ function registerAddr() {
   var roadAddressDetail = document.getElementById("roadAddressDetail").value;
 
   if (zonecode && roadAddress && roadAddressDetail) {
-    alert(
-      "주소가 등록되었습니다:\n" +
-        "우편번호: " +
-        zonecode +
-        "\n" +
-        "도로명주소: " +
-        roadAddress +
-        "\n" +
-        "상세주소: " +
-        roadAddressDetail
+    signupAddress = `(${zonecode}) ${roadAddress} ${roadAddressDetail}`;
+    openModal(
+      "주소가 등록되었습니다:\n"
+//      +
+//        "우편번호: " +
+//        zonecode +
+//        "\n" +
+//        "도로명주소: " +
+//        roadAddress +
+//        "\n" +
+//        "상세주소: " +
+//        roadAddressDetail
     );
   } else {
-    alert("모든 주소 정보를 입력해 주세요.");
+    openModal("모든 주소 정보를 입력해 주세요.");
   }
 }
 
@@ -142,7 +144,7 @@ function register() {
   for (const field of requiredFields) {
     const inputElement = document.getElementById(field.id);
     if (!inputElement || !inputElement.value.trim()) {
-      alert(field.message);
+      openModal(field.message);
       inputElement.focus();
       return;
     }
@@ -153,21 +155,21 @@ function register() {
 
   // 비밀번호 길이 검사
   if (password.length < 6 || password.length > 20) {
-    alert("비밀번호는 6~20자로 되어야 합니다.");
+    action_popup.openModal("비밀번호는 6~20자가 되어야합니다.");
     document.getElementById("password").focus();
     return;
   }
 
   // 비밀번호와 비밀번호 확인 일치 여부 검사
   if (password !== confirmPassword) {
-    alert("비밀번호와 비밀번호 확인 항목이 일치하지 않습니다.");
+    openModal("비밀번호와 비밀번호 확인 항목이 일치하지 않습니다.");
     document.getElementById("confirmPassword").focus();
     return;
   }
 
   const genderChecked = document.querySelector('input[name="gender"]:checked');
   if (!genderChecked) {
-    alert("성별은 필수입력 항목입니다.");
+    openModal("성별은 필수입력 항목입니다.");
     return;
   }
 
@@ -194,10 +196,6 @@ document.querySelector("#birthDate").addEventListener("change", (e) => {
 document.querySelector("#phoneNumber").addEventListener("change", (e) => {
   console.log(e.target.value);
   signupPhoneNumber = e.target.value;
-});
-document.querySelector("#roadAddressDetail").addEventListener("change", (e) => {
-  console.log(e.target.value);
-  signupAddress = e.target.value;
 });
 // document.querySelector(inputGender).addEventListener("change", (e) => {
 //   console.log(e.target.value);
@@ -265,7 +263,7 @@ function signupRegister() {
   if (confirm("회원가입 하시겠습니까?")) {
     const data = {
       userId: signupUserId,
-      userName: signupName,
+      name: signupName,
       password: signupPassword,
       birthDate: signupBirthDate,
       phoneNumber: signupPhoneNumber,
@@ -280,7 +278,7 @@ function signupRegister() {
       .then((response) => {
         console.log("데이터 : ", response);
         if (response.status == 201) {
-          alert("회원가입 완료");
+          openModal("회원가입 완료");
           window.location.href = "login.html";
         }
       })
@@ -297,3 +295,80 @@ function getRadioBtn(name) {
   let values = arrayElements.filter((e) => e.checked).map((e) => e.value);
   return values;
 }
+
+// 모달창 테스트
+
+var action_popup = {
+  timer: 500,
+  confirm: function (txt, callback) {
+    if (txt == null || txt.trim() == "") {
+      console.warn("confirm message is empty.");
+      return;
+    } else if (callback == null || typeof callback != "function") {
+      console.warn("callback is null or not function.");
+      return;
+    } else {
+      $(".type-confirm .btn_ok").on("click", function () {
+        $(this).unbind("click");
+        callback(true);
+        action_popup.close(this);
+      });
+      this.open("type-confirm", txt);
+    }
+  },
+
+  alert: function (txt) {
+    if (txt == null || txt.trim() == "") {
+      console.warn("confirm message is empty.");
+      return;
+    } else {
+      this.open("type-alert", txt);
+    }
+  },
+
+  open: function (type, txt) {
+    var popup = $("." + type);
+    popup.find(".menu_msg").text(txt);
+    $("body").append("<div class='dimLayer'></div>");
+    $(".dimLayer").css("height", $(document).height()).attr("target", type);
+    popup.fadeIn(this.timer);
+  },
+
+  close: function (target) {
+    var modal = $(target).closest(".modal-section");
+    var dimLayer;
+    if (modal.hasClass("type-confirm")) {
+      dimLayer = $(".dimLayer[target=type-confirm]");
+      $(".type-confirm .btn_ok").unbind("click");
+    } else if (modal.hasClass("type-alert")) {
+      dimLayer = $(".dimLayer[target=type-alert]");
+    } else {
+      console.warn("close unknown target.");
+      return;
+    }
+    modal.fadeOut(this.timer);
+    setTimeout(function () {
+      dimLayer != null ? dimLayer.remove() : "";
+    }, this.timer);
+  },
+};
+
+function openModal(message, callback) {
+  const alertModal = document.getElementById("myAlertModal");
+  const alertModalMessage = document.getElementById("alertModalMessage");
+  alertModalMessage.textContent = message;
+  alertModal.style.display = "block";
+
+  const confirmButton = document.getElementById("alertConfirmLogin");
+  confirmButton.onclick = function () {
+    callback && callback(); // 콜백이 있을 경우 실행
+    closeModal(); // 모달 닫기
+  };
+}
+
+function closeModal() {
+  const alertModal = document.getElementById("myAlertModal");
+  alertModal.style.display = "none";
+}
+
+document.getElementById("alertConfirmLogin").addEventListener("click", closeModal);

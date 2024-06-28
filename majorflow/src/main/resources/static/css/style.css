@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap");
+@font-face {
+  font-family: "SUIT-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0;
@@ -165,7 +173,7 @@
   font-size: 30px;
   font-weight: 500;
   position: absolute;
-  bottom: -500px;
+  bottom: -480px;
   left: 0px;
   transform: translateX(-100%);
   opacity: 0;
@@ -266,10 +274,15 @@ body {
 }
 .box3 {
   width: 100%;
-  height: 500px;
-  background-color: black;
-  margin-top: 50px;
+  height: 305px;
+  margin-top: 0;
+  background-image: url("/img/단체사진.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
+
 .wbox {
   width: 70%;
   margin: 0 auto;
@@ -287,10 +300,12 @@ body {
 .mainMenu > div {
   color: white;
   margin-top: 30px;
+  font-weight: bold;
 }
 
 .centerMenu {
   padding: 40px;
+  font-weight: bold;
 }
 
 /* padding 제거 오겸비 수정 */
@@ -317,7 +332,7 @@ body {
 }
 
 .title {
-  /* background-color: black; */
+  /* background-color: black; 배경색 제거 */
   font-size: 80px;
   font-weight: bold;
   color: white;
@@ -363,17 +378,19 @@ body {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 110px;
+  height: 40px;
 }
 
-.cartIcon,
 .mypageIcon {
   width: 25px;
   height: 25px;
 }
 
-
+.cartIcon {
+  width: 20px;
+  height: 25px;
+}
 
 /* 연혁 페이지 설정*/
 
@@ -387,6 +404,7 @@ body {
 }
 
 .historyImg {
+  background-color: gray;
   height: 400px;
   width: 500px;
   margin: 30px 30px 30px 0px;
@@ -398,15 +416,19 @@ body {
 }
 
 .historyText1 {
-  margin: 30px 40px 30px 40px;
+  margin: 30px 20px 30px 40px;
   font-size: 20px;
   line-height: 40px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 500;
 }
 
 .historyText2 {
-  margin: 30px 40px 30px 0px;
+  margin: 30px 20px 30px 0px;
   font-size: 20px;
   line-height: 40px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 500;
 }
 
 /* 강사진 페이지 설정*/
@@ -422,6 +444,7 @@ body {
 .teacher {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 60px;
 }
 
 .teacherInfo {
@@ -448,7 +471,9 @@ body {
 }
 
 .teacherName {
-  margin: 10px 0px 5px 0px;
+  margin: 15px 0px 5px 10px;
+  font-size: 25px;
+  font-family: "SUIT-Regular";
 }
 
 .teacherSubject {
@@ -558,7 +583,7 @@ body {
 .textContainer {
   position: absolute;
   left: 20px; /* 좌측에서 20px 떨어진 위치 */
-  bottom: 40px; /* 아래에서 40px 떨어진 위치 */
+  bottom: 20px;
   color: white;
   font-weight: bold;
   transition: transform 0.3s ease; /* 위치 변경 애니메이션 */
@@ -572,11 +597,20 @@ body {
   font-size: 30px; /* 기타 텍스트 크기 증가 */
 }
 
+.textContainer .lecClass {
+  font-size: 17px;
+  margin: 14px 0 0 6px;
+}
+.mainTextBx {
+  display: flex;
+}
+
 .textContainer .subText {
   font-size: 16px; /* 서브 텍스트 크기 설정 */
   font-weight: normal; /* 서브 텍스트 굵기 얇게 */
   opacity: 0; /* 기본 상태에서는 보이지 않음 */
   transition: opacity 0.3s ease; /* 자연스럽게 나타나는 애니메이션 */
+  margin-top: 10px;
 }
 
 .allCourseClick:hover .textContainer {
@@ -606,7 +640,9 @@ body {
 .detailedBox2 {
   width: 100%;
   display: grid;
-  grid-template-columns: 1.8fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 .detailedBox2Img {
   width: 500px;
@@ -618,21 +654,19 @@ body {
   width: 600px;
   height: 650px;
 }
-.detailedBox2Text2 {
-  width: 100%;
-  height: 800px;
-}
 
 .tasteCourse {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 20px 145px;
+  margin-left: 145px;
+  margin-bottom: 40px;
 }
 
 /* margin 오겸비 수정 */
 
 .tasteCourseClick {
-  margin: 20px auto;
+  margin: 20px 0 20px 0;
 }
 
 .tasteCourseClickImg {
@@ -653,13 +687,25 @@ body {
   border-radius: 15px;
 }
 
+.tasteName {
+  margin: 15px 0 0 10px;
+  font-family: "SUIT-Regular";
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.tasteTeacher {
+  margin: 10px 0 0 10px;
+  font-family: "SUIT-Regular";
+  font-size: 20px;
+}
+
 /* margin 추가 오겸비 수정 */
 
 .coursePriceGuide {
   width: 90%;
   height: 800px;
   margin: 0 auto;
-  margin-bottom: 30px;
   border-radius: 15px; /* 둥근 모서리 */
   background: linear-gradient(
     to bottom,
@@ -750,7 +796,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background: grey;
+  background: #0e0e0e;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -794,11 +840,13 @@ body {
 
 /*공지사항*/
 
+/* margin 추가 오겸비 수정 */
 .noticeBox2 {
   width: 90%; /* 가로 길이 조정 */
   height: 110px;
   border-radius: 25px;
   padding: 15px;
+  margin: 0 60px;
   position: relative;
   overflow: hidden;
   transition: height 0.3s ease, background-color 0.3s ease;
@@ -812,23 +860,22 @@ body {
 }
 .noticeBox3 {
   display: grid;
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 8fr 1.5fr 0.5fr;
   width: 100%;
   height: 88px;
 }
+/* padding-left 추가 오겸비 수정 */
 .noticeBox3-1 {
   font-size: 24px; /* 텍스트 크기 축소 */
   font-weight: bold;
   margin-right: 30px;
   line-height: 88px;
   color: #333; /* 텍스트 색상 변경 */
+  padding-left: 20px;
 }
 .noticeBox3Date {
-  font-size: 24px; /* 텍스트 크기 축소 */
-  font-weight: bold;
-  margin-right: 30px;
+  text-align: center;
   line-height: 88px;
-  color: #333; /* 텍스트 색상 변경 */
 }
 .noticeBox3-2 {
   cursor: pointer;
@@ -863,14 +910,18 @@ body {
   margin-bottom: 20px;
   border: 1px solid white; /* 연한 색상으로 변경 */
 }
+/* padding-left 추가 오겸비 수정 */
 .noticeBox4 {
   font-size: 18px; /* 텍스트 크기 축소 */
-  height: 150px;
+  height: 140px;
+  padding-left: 20px;
 }
+/* padding 추가 오겸비 수정 */
 .noticeBox5 {
   display: flex;
   align-items: center; /* 수직 가운데 정렬 */
   gap: 10px; /* 이미지와 텍스트 사이 간격 조정 */
+  padding: 0 1em;
 }
 
 .noticeBox5 img {
@@ -892,6 +943,7 @@ body {
   line-height: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: "SUIT-Regular";
 }
 
 .noticeBox5-1:hover {
@@ -954,15 +1006,52 @@ body {
 }
 
 .footer {
+  margin-top: 0; /* box3와 footer 사이 간격 제거 */
   text-align: center;
-  padding: 20px 0;
-  background-color: #f1f1f1;
+  padding: 40px 0 20px 0; /* 기본 패딩 설정 */
+  background-color: #222222;
 }
 
-.footer h3 {
+.footer-content {
+  display: flex;
+  flex-direction: column; /* 수직 정렬 */
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-circles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px; /* 텍스트와의 간격 조정 */
+}
+
+.footer-circle {
+  width: 40px; /* 크기를 더 크게 설정 */
+  height: 40px; /* 크기를 더 크게 설정 */
+  background-size: cover; /* 이미지가 요소 크기에 맞게 확대 */
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.footer-circle.git {
+  background-image: url("/img/깃아이콘.png"); /* 깃아이콘 이미지 경로 */
+}
+
+.footer-circle.figma {
+  background-image: url("/img/피그마아이콘.png"); /* 피그마아이콘 이미지 경로 */
+}
+
+.footer-info {
+  text-align: center;
+  padding: 20px 0; /* 높이를 늘리기 위해 패딩 추가 */
+}
+
+.footer-info p {
   margin: 0;
   font-size: 16px;
-  color: #333;
+  color: #808080;
 }
 
 /* 모달창 스타일 추가 */
@@ -1043,33 +1132,36 @@ body {
 }
 
 .lectureEnrollname {
+  font-family: "SUIT-Regular";
   font-size: 30px;
   padding: 5px 0px 5px 0px;
   margin: 30px 0px 0px 0px;
 }
 
 .teacherEnrollname {
+  font-family: "SUIT-Regular";
   font-size: 20px;
-  padding: 5px 0px 5px 0px;
+  padding: 5px 0px 5px 1px;
   margin: 0px 0px 30px 0px;
 }
 
-.enrollPrice > div {
-  display: inline-block;
-  padding: 20px 40px 20px 0px;
-  margin-right: 50px;
+.classEnrollName {
+  font-family: "SUIT-Regular";
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .cartEnrollBtn {
   height: 50px;
   width: 150px;
+  font-size: 16px;
   background-color: black;
   color: white;
-  border-radius: 15px;
+  border-radius: 30px;
   text-align: center;
   line-height: 50px;
   float: right;
-  margin: 5px 0px 5px 0px;
+  margin: 10px;
 }
 
 .cartEnrollBtn:hover {
@@ -1082,7 +1174,6 @@ body {
   justify-content: center;
   margin-top: 30px;
 }
-
 
 /* 체크박스 스타일링 */
 .styled-checkbox {
@@ -1183,11 +1274,10 @@ body {
   border: 1px solid #999;
 }
 
-.cartBox6Wrapper{
-display:flex;
-justify-content:center;
+.cartBox6Wrapper {
+  display: flex;
+  justify-content: center;
 }
-
 
 .cartBoxRemove {
   background-color: #ff4d4d;
@@ -1211,15 +1301,6 @@ justify-content:center;
   text-align: right;
   margin: 20px 0;
 }
-
-.footer {
-  width: 100%;
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-}
-
 /* new 수강신청 현황 */
 
 .myLectureBoxGrid {
@@ -1275,13 +1356,12 @@ justify-content:center;
 }
 
 .myLectureImgBox {
-
   width: inherit;
   height: 250px;
- border-radius: 30px 30px 0px 0px;
- }
+  border-radius: 30px 30px 0px 0px;
+}
 
- .myLectureImg {
+.myLectureImg {
   width: 100%;
   border-radius: 30px 30px 0px 0px;
 }
@@ -1299,24 +1379,23 @@ justify-content:center;
   width: 400px;
   border-radius: 20px;
 }
+
 .studyLectureBtnBox {
   display: flex;
   justify-content: center;
 }
 
-
-
 .myLectureInfoBox {
   height: 650px;
-  border-radius: 25px;
+  border: 1px solid gray;
+  border-radius: 30px;
   margin: 50px;
-  background-color: #bbd0e9;
 }
 
 .progressInfoBox {
-  height: 350px;
-  background-color: #bbd0e9;
-  border-radius: 25px;
+  height: 290px;
+  border: 1px solid gray;
+  border-radius: 30px;
   padding: 20px;
   margin: 50px;
   display: grid;
@@ -1353,25 +1432,29 @@ justify-content:center;
 .progressStudyBtn {
   width: 130px;
   height: 130px;
-      font-size: 22px;
-      font-weight: 600;
-      color: #fff;
-      cursor: pointer;
-      margin: 30px;
-      text-align:center;
-      line-height: 130px;
-      border: none;
-      background-size: 300% 100%;
-      border-radius: 20px;
-      moz-transition: all .4s ease-in-out;
-      -o-transition: all .4s ease-in-out;
-      -webkit-transition: all .4s ease-in-out;
-      transition: all .4s ease-in-out;
-      background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
-      box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
-  }
-
-
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 30px;
+  text-align: center;
+  line-height: 130px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 20px;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #29323c,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
 
 .progressBtnBox {
   display: flex;
@@ -1452,7 +1535,7 @@ justify-content:center;
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -1467,7 +1550,7 @@ justify-content:center;
 .reviewBox {
   width: 100%;
   height: 300px;
-  background-color: #D5D7D8;
+  background-color: #d5d7d8;
 }
 .reviewBox2-content {
   width: 100%;
@@ -1610,7 +1693,7 @@ justify-content:center;
 }
 .reviewBox7 {
   width: 100%;
-  height: 310px;
+  height: 315px;
   border-radius: 25px;
   background-color: #bbd0e9;
   padding: 15px;
@@ -1625,7 +1708,7 @@ justify-content:center;
   height: 43px;
   text-align: center;
   line-height: 43px;
-  margin-top: 20px;
+  margin: 20px 0 0 15px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -1661,9 +1744,14 @@ justify-content:center;
   grid-template-columns: 9.5fr 0.5fr;
   margin-top: 30px;
 }
+.likeBtn {
+  cursor: pointer;
+  width: 20px;
+  height: 25px;
+}
 .likeBtn:hover {
   cursor: pointer;
-  width: 30px;
+  width: 25px;
   height: 30px;
 }
 .reviewBox9Grid-1 {
@@ -1686,9 +1774,10 @@ justify-content:center;
 .reviewBox9Grid-2 {
   display: flex;
 }
-.reviewWriteBtnWrapper{
+.reviewWriteBtnWrapper {
   display: flex;
   justify-content: end;
+  margin: 0 80px 25px 0;
 }
 .star_rating {
   width: 100%;
@@ -1927,28 +2016,32 @@ justify-content:center;
 .reviewWriteBtn,
 .moveToCartBtn,
 .cartBox6,
-.studyLectureBtn,
-.alertClose,
-#alertConfirm
-{
-    width: 200px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    margin: 20px;
-    height: 55px;
-    text-align:center;
-    line-height: 55px;
-    border: none;
-    background-size: 300% 100%;
-    border-radius: 50px;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
-    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+.studyLectureBtn {
+  font-family: "SUIT-Regular";
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  line-height: 55px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #29323c,
+    #485563,
+    #2b5876,
+    #4e4376
+  );
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
 .cartEnrollBtn:hover,
@@ -1956,14 +2049,13 @@ justify-content:center;
 .moveToCartBtn:hover,
 .cartBox6:hover,
 .studyLectureBtn:hover,
-.progressStudyBtn:hover,
-.alertClose:hover,
-#alertConfirm:hover{
-    background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+.progressStudyBtn:hover {
+  font-family: "SUIT-Regular";
+  background-position: 100% 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .cartEnrollBtn:focus,
@@ -1971,11 +2063,8 @@ justify-content:center;
 .moveToCartBtn:focus,
 .cartBox6:focus,
 .studyLectureBtn:focus,
-.progressStudyBtn:focus
-.alertClose:focus,
-#alertConfirm:focus
-{
-    outline: none;
+.progressStudyBtn:focus {
+  outline: none;
 }
 
 /* alert 모달창 */
@@ -1988,63 +2077,105 @@ justify-content:center;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5); /* 반투명 배경 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
 }
 
 .alertModal-content {
-  background-color: white;
-  height: 200px;
+  border: 1px solid #0e0e0e;
+  background-color: #fff;
+  height: 220px;
   margin: 15% auto;
   padding: 30px;
   width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  items-align: center;
+  max-width: 400px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  align-items: center;
 }
 .alertModalBtn {
- display: grid;
- grid-template-columns: 1fr 1fr;
- margin: 20px 0;
- grid-column-gap : 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px 30px;
+  justify-items: center;
+}
+
+.alertModalBtnLogin {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 #alertModalMessage {
- font-size: 24px;
- text-align : center;
+  font-family: "SUIT-Regular";
+  font-size: 24px;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .alertClose {
+  font-family: "SUIT-Regular";
   color: #aaa;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
-  weight: 50px;
+  font-size: 23px;
+  font-weight: 50px;
   border-radius: 25px;
+  width: 80px;
+  height: 40px;
+  margin: 30px 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
-.alertClose:hover,
-.alertClose:focus {
-  color: black;
+.alertClose:hover {
+  font-family: "SUIT-Regular";
+  color: #0e0e0e;
   text-decoration: none;
   cursor: pointer;
- }
+  background-position: 100% 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
 
+#alertConfirmLogin,
 #alertConfirm {
+  font-family: "SUIT-Regular";
   color: #aaa;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
-  weight: 50px;
+  font-size: 23px;
+  font-weight: 50px;
   border-radius: 25px;
+  width: 80px;
+  height: 40px;
+  margin: 30px 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
-#alertConfirm:hover,
-#alertConfirm:focus {
-  color: black;
+#alertConfirmLogin:hover,
+#alertConfirm:hover {
+  font-family: "SUIT-Regular";
+  color: #0e0e0e;
   text-decoration: none;
   cursor: pointer;
- }
+  background-position: 100% 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.alertClose:focus,
+#alertConfirm:focus {
+  outline: none;
+}
 
 .hidden {
   display: none;

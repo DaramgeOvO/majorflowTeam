@@ -173,11 +173,11 @@ function fetchReviews() {
 
 // 리뷰 개수를 표시하는 새로운 함수
 function displayReviewCount(count) {
-  const reviewCountElement = document.getElementById('reviewBox3-1');
+  const reviewCountElement = document.getElementById("reviewBox3-1");
   if (reviewCountElement) {
     reviewCountElement.textContent = `${count} 개`;
   }
-};
+}
 
 // 평균 평점을 계산하는 함수
 function calculateAverageRating(reviews) {
@@ -188,7 +188,7 @@ function calculateAverageRating(reviews) {
 
 // 평균 평점을 표시하는 함수
 function displayAverageRating(average) {
-  const averageRatingElement = document.getElementById('reviewBox3-2');
+  const averageRatingElement = document.getElementById("reviewBox3-2");
   if (averageRatingElement) {
     averageRatingElement.innerHTML = `★ ${average}`;
   }

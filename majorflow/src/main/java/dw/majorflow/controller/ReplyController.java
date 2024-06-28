@@ -1,5 +1,6 @@
 package dw.majorflow.controller;
 
+import dw.majorflow.dto.ReplyDto;
 import dw.majorflow.model.Reply;
 import dw.majorflow.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,12 @@ public class ReplyController {
     @GetMapping("/get")
     public ResponseEntity<List<Reply>> getAllReply() {
         return new ResponseEntity<>(replyService.getAllReply(),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/dto")
+    public ResponseEntity<List<ReplyDto>> getReplyAllByDto() {
+        return new ResponseEntity<>(replyService.getReplyAllByDto(),
                 HttpStatus.OK);
     }
 
