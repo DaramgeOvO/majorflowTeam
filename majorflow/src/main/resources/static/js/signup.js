@@ -39,15 +39,15 @@ function registerAddr() {
     signupAddress = `(${zonecode}) ${roadAddress} ${roadAddressDetail}`;
     openModal(
       "주소가 등록되었습니다:\n"
-//      +
-//        "우편번호: " +
-//        zonecode +
-//        "\n" +
-//        "도로명주소: " +
-//        roadAddress +
-//        "\n" +
-//        "상세주소: " +
-//        roadAddressDetail
+      //      +
+      //        "우편번호: " +
+      //        zonecode +
+      //        "\n" +
+      //        "도로명주소: " +
+      //        roadAddress +
+      //        "\n" +
+      //        "상세주소: " +
+      //        roadAddressDetail
     );
   } else {
     openModal("모든 주소 정보를 입력해 주세요.");
@@ -370,5 +370,3 @@ function closeModal() {
   const alertModal = document.getElementById("myAlertModal");
   alertModal.style.display = "none";
 }
-
-document.getElementById("alertConfirmLogin").addEventListener("click", closeModal);

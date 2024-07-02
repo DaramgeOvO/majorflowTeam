@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   reviewWriteBtn2.addEventListener("click", () => {
     const reviewContent = document.querySelector(".star_box").value;
     if (!reviewContent) {
-      alert("리뷰 내용을 작성해주세요.");
+      openModal("리뷰 내용을 작성해주세요.");
       return;
     }
 

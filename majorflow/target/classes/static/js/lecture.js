@@ -5,6 +5,31 @@ console.log("lecture ID: ", lectureId);
 const urlLecture = "http://localhost:8080/lectures/" + lectureId;
 const urlLogout = "http://localhost:8080/user/logout";
 
+const tasteCourseBtn = document.querySelector(".tasteCourseBtn");
+const allCourseBtn = document.querySelector(".allCourseBtn");
+const coursePriceGuideBtn = document.querySelector(".coursePriceGuideBtn");
+
+tasteCourseBtn.addEventListener("click", () => {
+  window.location.href = "course.html?courseType=taste";
+});
+allCourseBtn.addEventListener("click", () => {
+  window.location.href = "course.html?courseType=all";
+});
+coursePriceGuideBtn.addEventListener("click", () => {
+  window.location.href = "course.html?courseType=priceGuide";
+});
+
+document.querySelectorAll(".subMenu > div").forEach((div) => {
+  div.addEventListener("click", () => {
+    document
+      .querySelectorAll(".subMenu > div")
+      .forEach((item) => item.classList.remove("active"));
+
+    // 클릭된 div에 active 클래스 추가
+    div.classList.add("active");
+  });
+});
+
 axios
   .get(urlLecture)
   .then((response) => {

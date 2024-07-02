@@ -93,8 +93,19 @@ function displayTeacher(data) {
   singleTeacherTitle.textContent = data.teacherName;
   singleTeacherImg.src = data.teacherImgPath;
   singleTeacherInfo.textContent = data.user.email;
-  singleTeacherText2.innerHTML =
-    "Lorem ipsum dolor sit amet. Sit ratione reiciendis est quidem liberoeos quas quia est obcaecati atque nam illum quia. Aut pariatur omnisut neque deleniti non voluptas accusamus est recusandae vitae eaofficia consectetur. Et dolores ipsam sed laborum consectetur utcupiditate voluptate rem quam magnam At Quis inventore ut veniamaccusantium qui voluptatum voluptas. Ea optio fugit non nesciuntalias nam animi sequi qui doloremque debitis sed voluptatemvoluptate. Ad exercitationem quis aut ipsum atque et odio corruptiqui necessitatibus consequatur id voluptates minus in modi doloremet explicabo mollitia. Et rerum iste aut odio inventore in maioresvelit et dicta inventore sed odio consequatur. Ea rerum beatae inincidunt voluptas et provident voluptas et commodi velit. Quo doloredicta id voluptatem reprehenderit et harum voluptatibus et iureneque ut maiores mollitia et saepe iure! Et sint saepe quo quae iureet quia pariatur et porro fugiat ut ipsum Quis est deseruntvoluptatem aut quos temporibus.";
+  singleTeacherText2.innerHTML = `
+    ・계명대학교 음악대학 졸업<br>
+    ・프랑스 파리 Conservatoire Paul Dukas 최고연주자 과정 최우수 졸업<br>
+    ・계명대학교 콩쿨 1위, 프랑스 Roger Bourdin 콩쿨 1위 등 국제 콩쿨 다수 입상<br>
+    ・14회 대구콘서트하우스 재개관 기념 초청 독주회<br>
+    ・한국여성작곡가회 대구지부 연주자초청 독주회<br>
+    ・대구시립교향악단, 제주 신포니에타, 대구 스트링스<br>
+    ・아스콜티 코리안 챔버 협연 등 다수 기획공연 초청 연주<br>
+    ・2022, 2023 대구문화재단 신진예술가 선정자<br>
+    ・제20회 대구음악협회 전국학생음악경연대회 지도자상 수상<br>
+    ・2022 대구 국제 음악제 프린지 그랑프리 수상<br>
+    ・2023 대구문화재단 개인창작예술가 선정
+  `;
 
   singleTeacherBox.appendChild(backBtn);
   backBtn.appendChild(backBtnImg);

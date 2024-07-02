@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -27,8 +28,4 @@ public class FreeBoard {
 
     @Column
     private LocalDateTime FreeBoardTime;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 }

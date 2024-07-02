@@ -308,7 +308,6 @@ body {
   font-weight: bold;
 }
 
-/* padding 제거 오겸비 수정 */
 .rightMenu {
   cursor: pointer;
 }
@@ -325,7 +324,6 @@ body {
   color: gray;
 }
 
-/* rightMenuBx 추가 오겸비 수정 */
 .rightMenuBx {
   display: flex;
   justify-content: space-evenly;
@@ -348,8 +346,6 @@ body {
   justify-content: start;
   align-items: center;
 }
-
-/* margin 오겸비 수정 */
 
 .subMenu > div {
   width: 250px;
@@ -407,16 +403,18 @@ body {
   background-color: gray;
   height: 400px;
   width: 500px;
-  margin: 30px 30px 30px 0px;
+  margin: 35px 30px 30px 30px;
 }
 
 .historyBox1 {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  gap: 60px; /* 이미지와 연혁 텍스트 사이 간격 */
 }
 
 .historyText1 {
-  margin: 30px 20px 30px 40px;
+  margin: 30px 30px 80px 30px; /* 이미지와 텍스트 사이의 간격을 더 벌림 */
   font-size: 20px;
   line-height: 40px;
   font-family: "Noto Serif KR", serif;
@@ -424,11 +422,106 @@ body {
 }
 
 .historyText2 {
-  margin: 30px 20px 30px 0px;
+  margin: 30px;
   font-size: 20px;
   line-height: 40px;
   font-family: "Noto Serif KR", serif;
   font-weight: 500;
+}
+
+#history {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+#history h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #444;
+  line-height: 1;
+  margin: 20px 0;
+}
+
+.historyYear {
+  padding-bottom: 10px;
+}
+
+.list_right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.list_right span {
+  width: 20px;
+}
+
+.list_right div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.list_right div:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #dfdfdf;
+  left: -10px;
+}
+
+.list_right div ul {
+  width: 100%;
+  list-style: none; /* 마커 제거 */
+}
+
+.list_right div ul li {
+  position: relative;
+  padding: 8px 10px;
+}
+
+.list_right div ul li + li {
+  margin-top: 20px;
+}
+
+.list_right div ul li:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border: 3px solid #0a4a9f;
+  border-radius: 50%;
+  left: -20px;
+}
+
+.list_right dl {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.list_right dl dt {
+  font-size: 20px;
+  color: #444;
+  font-weight: bold;
+  flex: 1;
+  text-align: left;
+  margin-right: 10px; /* 날짜와 이벤트 사이의 간격을 조정 */
+}
+
+.list_right dl dd {
+  font-size: 18px;
+  color: #444;
+  flex: 2;
+  text-align: left;
 }
 
 /* 강사진 페이지 설정*/
@@ -514,7 +607,7 @@ body {
 
 .singleTeacher1 > div {
   font-size: 20px;
-  padding: 10px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .singleTeacher2 > div {
@@ -658,12 +751,10 @@ body {
 .tasteCourse {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px 145px;
-  margin-left: 145px;
+  gap: 20px 123px;
+  margin-left: 103px;
   margin-bottom: 40px;
 }
-
-/* margin 오겸비 수정 */
 
 .tasteCourseClick {
   margin: 20px 0 20px 0;
@@ -700,10 +791,8 @@ body {
   font-size: 20px;
 }
 
-/* margin 추가 오겸비 수정 */
-
 .coursePriceGuide {
-  width: 90%;
+  width: 80%;
   height: 800px;
   margin: 0 auto;
   border-radius: 15px; /* 둥근 모서리 */
@@ -746,10 +835,14 @@ body {
   background-color: #a0aec0;
   margin: 40px auto;
 }
-#priceGuide1,
+#priceGuide1 {
+  font-size: 70px;
+  margin: 20px 0 0 100px;
+  color: #333;
+}
 #priceGuide2 {
   font-size: 70px;
-  margin: 20px 0 10px 100px;
+  margin: 0 0 10px 100px;
   color: #333;
 }
 .priceGuide3 {
@@ -758,7 +851,7 @@ body {
   color: #555;
 }
 .priceGuide4 {
-  font-size: 90px;
+  font-size: 80px;
   margin: 0px 80px 10px 0px;
   font-weight: bold;
   display: flex;
@@ -767,7 +860,7 @@ body {
 }
 #priceGuide5 {
   font-size: 25px;
-  margin: 40px 80px;
+  margin: 40px 150px;
   display: flex;
   justify-content: end;
   color: #777;
@@ -840,7 +933,6 @@ body {
 
 /*공지사항*/
 
-/* margin 추가 오겸비 수정 */
 .noticeBox2 {
   width: 90%; /* 가로 길이 조정 */
   height: 110px;
@@ -855,7 +947,7 @@ body {
 }
 
 .noticeBox2.active {
-  height: 330px;
+  height: auto;
   transition: height 0.3s ease;
 }
 .noticeBox3 {
@@ -864,7 +956,7 @@ body {
   width: 100%;
   height: 88px;
 }
-/* padding-left 추가 오겸비 수정 */
+
 .noticeBox3-1 {
   font-size: 24px; /* 텍스트 크기 축소 */
   font-weight: bold;
@@ -906,17 +998,17 @@ body {
 .noticeBoxLine {
   width: 100%;
   height: 1px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 20px;
   border: 1px solid white; /* 연한 색상으로 변경 */
 }
-/* padding-left 추가 오겸비 수정 */
+
 .noticeBox4 {
   font-size: 18px; /* 텍스트 크기 축소 */
   height: 140px;
   padding-left: 20px;
 }
-/* padding 추가 오겸비 수정 */
+
 .noticeBox5 {
   display: flex;
   align-items: center; /* 수직 가운데 정렬 */
@@ -949,6 +1041,27 @@ body {
 .noticeBox5-1:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+.noticeReply {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  font-size: 15px;
+  margin: 0 20px 20px 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+
+  width: 95%;
+  height: 80px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.noticeReply > div {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #aaaaaa;
 }
 
 .commentBox {
@@ -1111,11 +1224,12 @@ body {
   margin: 0px 0px 30px 0px;
   display: flex;
   flex-basis: 100%;
+  padding: 10px;
 }
 
 .lectureEnrollInfo {
   width: 810px;
-  margin: 30px;
+  margin: 30px 30px 30px 10px;
 }
 
 .lectureEnrollimg {
@@ -1128,6 +1242,7 @@ body {
 
 .lectureEnrollimg > img {
   width: 400px;
+  height: 266px;
   border-radius: 25px;
 }
 
@@ -1172,7 +1287,7 @@ body {
 .moveToCartBtnContainer {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin: 30px;
 }
 
 /* 체크박스 스타일링 */
@@ -1207,12 +1322,12 @@ body {
 /* 장바구니 */
 .box1Cart {
   width: 100%;
-  min-height: 100vh;
+  min-height: 800px;
   background-color: #444;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
+  padding: 50px 0 20px; /* padding-bottom을 줄여서 간격을 줄임 */
 }
 
 .cartBox {
@@ -1222,8 +1337,8 @@ body {
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: auto;
-  margin-bottom: 20px;
+  margin-top: 200px; /* margin-top 값을 적절히 조정 */
+  margin-bottom: 20px; /* margin-bottom 값을 적절히 조정 */
 }
 
 .cartBox1 {
@@ -1568,7 +1683,7 @@ body {
   justify-items: center;
 }
 .reviewBox4 {
-  width: 240px;
+  width: 300px;
   height: 47px;
   text-align: center;
   font-size: 30px;
@@ -2175,6 +2290,10 @@ body {
 .alertClose:focus,
 #alertConfirm:focus {
   outline: none;
+}
+
+.cartEnrollBtn {
+  margin-top: 110px;
 }
 
 .hidden {

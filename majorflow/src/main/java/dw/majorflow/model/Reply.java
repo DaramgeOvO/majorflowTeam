@@ -3,6 +3,7 @@ package dw.majorflow.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -28,7 +29,7 @@ public class Reply {
     private User user;
 
     @Column
-    private LocalDateTime replyTime;
+    private LocalDate replyTime;
 
 
 }

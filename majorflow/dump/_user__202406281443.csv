@@ -1,0 +1,8 @@
+"user_id","address","birth_date","email","gender","genre","user_name","nickname","password","phone_number","authority_authority_name"
+garam12,(35205) 대전 서구 문예로 174 (둔산동),1986-09-21,garam12@email.com,female,재즈,양가람,gryang,$2a$10$FMB6M6bnU9RRUl2l1SIfBu.Cn7GI0qrJGSXstet/bbEy4i1M2ZOhm,"010-8344-9240",ROLE_ADMIN
+geonho12,(32821) 계룡 엄사면 번영3길 91,2006-01-22,geonho12@email.com,male,락,조건호,ghjo,$2a$10$FMB6M6bnU9RRUl2l1SIfBu.Cn7GI0qrJGSXstet/bbEy4i1M2ZOhm,"010-9159-2414",ROLE_TEACHER
+kyembi12,(34925) 대전 중구 대종로 452번길 19,2000-08-10,kyembi12@email.com,Female,클래식,오겸비,kbo,$2a$10$trVyJQRtFYXPT/dN23wza.Eo3X2iBM14mhAX.uiUu2SUAeNpnVrcy,"010-7921-9722",ROLE_ADMIN
+peniel12,(300815) 대전 동구 용전동 158-12,1992-10-12,peniel@email.com,Female,클래식,조브니엘,pnjo,$2a$10$d9YeIDk/SI.2NAIq92rMkejlPl1frLbTBnSaKoRz536LPVjafMHri,"010-2854-2114",ROLE_TEACHER
+steve12,(34838) 대전 중구 중앙로 121번길 20 방산빌딩 2층,1975-09-03,steve12@email.com,male,POP,스티브,steve,$2a$10$75oRDPyTzFx6ZogxqzW2UO516tvNd24lgtwJNrbBHBugSsDyKvQkO,"010-3468-8912",ROLE_USER
+sua12,(34925) 대전 중구 대종로 452번길 19,2007-06-04,sua12@email.com,female,POP,조수아,sajo,$2a$10$nlore8Uwf/ubQRTjTWGV3OiOlL2bifgP3RMW7lZvLVXSdNG2bZOoO,"010-5485-2414",ROLE_TEACHER
+tom12,(06035) 서울 강남구 가로수길 5 롯데캐슬 201동 101호,2024-06-28,tom12@email.com,male,클래식,tom,tommy,$2a$10$uhPxsuEjH2Y3VIC.E2xwj.GU/ZRYxBRs0V3Ys0aDqmkXPK0rpyTvi,"010-1234-5678",ROLE_USER

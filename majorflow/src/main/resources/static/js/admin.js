@@ -12,7 +12,16 @@ document.querySelector(".adminPageBtn").addEventListener("click", () => {
   document.querySelector(".noticeWriteBox").classList.add("hidden");
 });
 
-sessionCurrent();
+document.querySelectorAll(".subMenu > div").forEach((div) => {
+  div.addEventListener("click", () => {
+    document
+      .querySelectorAll(".subMenu > div")
+      .forEach((item) => item.classList.remove("active"));
+
+    // 클릭된 div에 active 클래스 추가
+    div.classList.add("active");
+  });
+});
 
 function sessionCurrent() {
   axios
@@ -315,3 +324,5 @@ submitButton.addEventListener("click", () => {
       alert("공지사항 등록에 실패했습니다. 다시 시도해주세요.");
     });
 });
+
+sessionCurrent();

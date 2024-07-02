@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -19,7 +20,7 @@ public class ReplyDto {
     private User userId;
     private FreeBoard freeBoardId;
     private String text;
-    private LocalDateTime replyTime;
+    private LocalDate replyTime;
 
     public ReplyDto toReplyDtoFromReply(Reply reply) {
         ReplyDto replyDto = new ReplyDto();

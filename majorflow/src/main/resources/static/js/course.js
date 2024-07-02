@@ -137,6 +137,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseType = urlParams.get("courseType");
+
+  if (courseType === "taste") {
+    const tasteCourseBox = document.querySelector(".tasteCourseBox");
+    if (tasteCourseBox) {
+      document.querySelector(".tasteCourseBox").classList.remove("hidden");
+      document.querySelector(".allCourseBox").classList.add("hidden");
+      document.querySelector(".coursePriceGuideBox").classList.add("hidden");
+      document.querySelector(".allCourseDetailBox").classList.add("hidden");
+      document.querySelector(".tasteCourseBtn").classList.add("active");
+      document.querySelector(".allCourseBtn").classList.remove("active");
+    }
+  } else if (courseType === "all") {
+    const allCourseBtn = document.querySelector(".allCourseBtn");
+    if (allCourseBtn) {
+      document.querySelector(".allCourseBox").classList.remove("hidden");
+      document.querySelector(".tasteCourseBox").classList.add("hidden");
+      document.querySelector(".coursePriceGuideBox").classList.add("hidden");
+    }
+  } else if (courseType === "priceGuide") {
+    const coursePriceGuideBtn = document.querySelector(".coursePriceGuideBtn");
+    if (coursePriceGuideBtn) {
+      document.querySelector(".coursePriceGuideBox").classList.remove("hidden");
+      document.querySelector(".tasteCourseBox").classList.add("hidden");
+      document.querySelector(".allCourseBox").classList.add("hidden");
+      document.querySelector(".allCourseDetailBox").classList.add("hidden");
+      document.querySelector(".allCourseBtn").classList.remove("active");
+      document.querySelector(".coursePriceGuideBtn").classList.add("active");
+    }
+  }
+});
+
 function sessionCurrent() {
   axios
     .get("http://localhost:8080/user/current", { withCredentials: true })
